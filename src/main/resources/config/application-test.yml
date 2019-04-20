@@ -4,8 +4,22 @@ server:
     context-path: /jiang_nan
 spring:
   datasource:
-    url: jdbc:mysql://106.13.129.20:3306/rhubard?characterEncoding=utf8&useSSL=true
-    username: root
-    password: Qw962453..
+    url: jdbc:mysql://47.92.36.109:3306/lizard_db?characterEncoding=utf8&serverTimezone=GMT&useSSL=true
+    username: bhyx2608
+    password: Wd6QCBomwquNKClSBY6k9hBOPu5LESKE
 logging:
   config: classpath:config/log4j2-test.yml
+mybatis-plus:
+  mapper-locations: classpath:mapper/**.xml
+  typeAliasesPackage: com.bing.mapper
+  global-config.id-type: 5
+  global-config.field-strategy: 2
+  global-config.db-column-underline: true
+  global-config.refresh-mapper: true
+  global-config.capital-mode: true
+oss:
+  address: http://oss.zzbhxc.com
+  accessKey: LTAIZsaSG1Snol6b
+  accessSecret: RbTiiHeNrgD5cYe6q3Is5dRglpRsu9
+  bucketName: mycar
+  filePath: images/

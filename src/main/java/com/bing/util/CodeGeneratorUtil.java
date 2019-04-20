@@ -15,7 +15,7 @@ import com.baomidou.mybatisplus.generator.engine.FreemarkerTemplateEngine;
 public class CodeGeneratorUtil {
 
 	public static void main(String[] args) {
-		String tableName="base_user";
+		String tableName="t_product_yisun_filter_hy";
 		// 代码生成器
 		AutoGenerator mpg = new AutoGenerator();
 		// 全局配置
@@ -31,10 +31,10 @@ public class CodeGeneratorUtil {
 
 		// 数据源配置
 		DataSourceConfig dsc = new DataSourceConfig();
-		dsc.setUrl("jdbc:mysql://106.13.129.20:3306/rhubard?useUnicode=true&characterEncoding=utf8&useSSL=false&tinyInt1isBit=true");
+		dsc.setUrl("jdbc:mysql://47.92.36.109:3306/lizard_db?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=GMT&tinyInt1isBit=true");
 		dsc.setDriverName("com.mysql.jdbc.Driver");
-		dsc.setUsername("root");
-		dsc.setPassword("Qw962453..");
+		dsc.setUsername("bhyx2608");
+		dsc.setPassword("Wd6QCBomwquNKClSBY6k9hBOPu5LESKE");
 		mpg.setDataSource(dsc);
 
 		// 包配置
