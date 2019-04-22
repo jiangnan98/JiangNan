@@ -1,11 +1,19 @@
 package com.bing.controller;
 
+import com.bing.anno.Auth;
 import com.bing.mapper.ProductYisunFilterHyMapper;
 import com.bing.middleware.AliOssUploadServer;
 import com.bing.model.ProductYisunFilterHy;
+import com.bing.pack.LizardSystemCode;
+import com.bing.pack.RequestParam;
+import com.bing.pack.ResponseCollection;
+import com.bing.pack.ResponseResult;
+import com.bing.req.vo.TestReqVo;
+import com.bing.res.vo.TestResVo;
 import com.bing.service.ExcelService;
 import com.bing.util.ExcelUtil;
 import com.bing.util.LogUtils;
+import com.bing.util.VerifyUtil;
 import org.apache.http.entity.ContentType;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
@@ -14,10 +22,10 @@ import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mock.web.MockMultipartFile;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
-import org.apache.http.entity.ContentType;
 
 import java.io.*;
 import java.net.HttpURLConnection;
@@ -41,6 +49,29 @@ public class ExcelController {
     ProductYisunFilterHyMapper productYisunFilterHyMapper;
     @Autowired
     AliOssUploadServer aliOssUploadServer;
+
+    @Auth
+    @PostMapping("testVerify")
+    public ResponseResult<TestResVo> testVerify(@RequestBody RequestParam<TestReqVo> testReqVo) throws Exception{
+        TestReqVo vo = testReqVo.getParams();
+        if(!VerifyUtil.verifyParams(vo)){
+            return ResponseResult.failNotice(LizardSystemCode.PARAMS_ERROR.msg());
+        }
+        TestResVo testResVo = new TestResVo();
+        testResVo.setTestName(vo.getTestName());
+        return ResponseResult.success(testResVo);
+    }
+
+    @PostMapping("test2")
+    public ResponseResult<TestResVo> test2(@RequestBody RequestParam<TestReqVo> testReqVo) throws Exception{
+        TestReqVo vo = testReqVo.getParams();
+        if(!VerifyUtil.verifyParams(vo)){
+            return ResponseResult.failNotice(LizardSystemCode.PARAMS_ERROR.msg());
+        }
+        TestResVo testResVo = new TestResVo();
+        testResVo.setTestName(vo.getTestName());
+        return ResponseResult.success(testResVo);
+    }
 
     @PostMapping("hyFilter")
     public void findList() throws Exception{
