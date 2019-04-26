@@ -1,4 +1,6 @@
-package com.bhyx.lizard.core.util;
+package com.bing.util;
+
+import org.apache.commons.lang.StringUtils;
 
 import java.text.DecimalFormat;
 

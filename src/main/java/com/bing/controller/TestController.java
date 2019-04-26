@@ -1,5 +1,6 @@
 package com.bing.controller;
 
+import com.bing.anno.Auth;
 import com.bing.model.BaseUser;
 import com.bing.service.TestService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +25,7 @@ public class TestController {
     @Autowired
     TestService testService;
 
+    @Auth
     @PostMapping( value = "findList")
     public List<BaseUser> findList(){
         return testService.findUser();

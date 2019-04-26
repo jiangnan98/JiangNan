@@ -1,4 +1,4 @@
-package com.bing.jiang.entity;
+package com.bing.model;
 
 import java.util.Date;
 import com.baomidou.mybatisplus.annotations.TableId;
@@ -8,11 +8,7 @@ import com.baomidou.mybatisplus.annotations.TableName;
 import java.io.Serializable;
 
 
-
-import com.baomidou.mybatisplus.annotations.Version;
-
 import lombok.Data;
-import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
 
 /**
@@ -26,7 +22,7 @@ import lombok.experimental.Accessors;
 @Data
 @Accessors(chain = true)
 @TableName("t_product_yisun_filter_man_ml")
-public class TProductYisunFilterManMl extends Model<TProductYisunFilterManMl> {
+public class ProductYisunFilterManMl extends Model<ProductYisunFilterManMl> {
 
     private static final long serialVersionUID = 1L;
 

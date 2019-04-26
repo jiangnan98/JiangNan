@@ -5,11 +5,7 @@ import com.baomidou.mybatisplus.annotations.TableName;
 import java.io.Serializable;
 
 
-
-import com.baomidou.mybatisplus.annotations.Version;
-
 import lombok.Data;
-import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
 
 /**
@@ -22,10 +18,12 @@ import lombok.experimental.Accessors;
  */
 @Data
 @Accessors(chain = true)
-@TableName("t_model_filter_hy")
-public class TModelFilterHy extends Model<TModelFilterHy> {
+@TableName("t_model_ignition_ngk")
+public class ModelFilterHy extends Model<ModelFilterHy> {
 
     private static final long serialVersionUID = 1L;
+
+    private String id;
 
     /**
      * 首写字母

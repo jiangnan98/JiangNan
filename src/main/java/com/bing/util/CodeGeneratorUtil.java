@@ -15,7 +15,8 @@ import com.baomidou.mybatisplus.generator.engine.FreemarkerTemplateEngine;
 public class CodeGeneratorUtil {
 
 	public static void main(String[] args) {
-		String tableName="t_product_yisun_filter_hy";
+//		t_model_filter_hy
+		String tableName="t_product_yisun_chassis";
 		// 代码生成器
 		AutoGenerator mpg = new AutoGenerator();
 		// 全局配置

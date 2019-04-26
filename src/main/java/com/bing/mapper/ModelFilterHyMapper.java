@@ -1,7 +1,7 @@
 package com.bing.mapper;
 
-import com.bing.jiang.entity.TModelFilterHy;
 import com.baomidou.mybatisplus.mapper.BaseMapper;
+import com.bing.model.ModelFilterHy;
 
 /**
  * <p>
@@ -11,6 +11,6 @@ import com.baomidou.mybatisplus.mapper.BaseMapper;
  * @author Jiang
  * @since 2019-04-23
  */
-public interface TModelFilterHyMapper extends BaseMapper<TModelFilterHy> {
+public interface ModelFilterHyMapper extends BaseMapper<ModelFilterHy> {
 
 }

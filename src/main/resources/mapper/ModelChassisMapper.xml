@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.bing.mapper.ProductYisunIgnitionMapper">
-   <update id="editPrice" parameterType="com.bing.model.ProductYisunIgnition">
-       update t_product_yisun_ignition set
-       price = #{price},
-       ourc_price = #{ourcPrice}
-       where factory_num = #{factoryNum}
+<mapper namespace="com.bing.mapper.ModelChassisTnkMapper">
+   <update id="editProduct" parameterType="com.bing.model.ProductYisunIgnition">
+       UPDATE
+       t_model_chassis_tnk
+       SET product = #{product}
+       where id = #{id}
    </update>
 </mapper>

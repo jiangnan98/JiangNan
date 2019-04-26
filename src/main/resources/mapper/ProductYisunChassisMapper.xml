@@ -1,24 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.bing.mapper.ProductYisunFilterHyMapper">
+<mapper namespace="com.bing.mapper.ProductYisunChassisMapper">
 
 <update id="editPrice" parameterType="com.bing.model.ProductYisunFilterHy">
         update
-        t_product_yisun_filter
-        set  ourc_price = #{ourcPrice} ,price = #{price}
-        where factory_num = #{factoryNum}
-    </update>
-
-    <update id="editOurcPriceMa" parameterType="com.bing.model.ProductYisunFilterHy">
-        update
-        t_product_yisun_filter
-        set  ourc_price = #{ourcPrice}
-        where factory_num = #{factoryNum}
-    </update>
-    <update id="editPriceMa" parameterType="com.bing.model.ProductYisunFilterHy">
-        update
-        t_product_yisun_filter
-        set  price = #{price}
+        t_product_yisun_Chassis
+        set  ourc_price = #{ourcPrice} ,price = #{price},unit = #{unit}
         where factory_num = #{factoryNum}
     </update>
 </mapper>

@@ -11,6 +11,6 @@ import com.bing.model.ModelChassisTnk;
  * @author Jiang
  * @since 2019-04-25
  */
-public interface TModelChassisTnkMapper extends BaseMapper<ModelChassisTnk> {
-
+public interface ModelChassisTnkMapper extends BaseMapper<ModelChassisTnk> {
+    int editProduct(ModelChassisTnk modelChassisTnk);
 }

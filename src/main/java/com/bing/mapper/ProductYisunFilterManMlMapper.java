@@ -1,7 +1,7 @@
-package com.bing.jiang.mapper;
+package com.bing.mapper;
 
-import com.bing.jiang.entity.TProductYisunFilterManMl;
 import com.baomidou.mybatisplus.mapper.BaseMapper;
+import com.bing.model.ProductYisunFilterManMl;
 
 /**
  * <p>
@@ -11,6 +11,6 @@ import com.baomidou.mybatisplus.mapper.BaseMapper;
  * @author Jiang
  * @since 2019-04-22
  */
-public interface TProductYisunFilterManMlMapper extends BaseMapper<TProductYisunFilterManMl> {
+public interface ProductYisunFilterManMlMapper extends BaseMapper<ProductYisunFilterManMl> {
 
 }

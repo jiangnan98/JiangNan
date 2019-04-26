@@ -1,15 +1,11 @@
-package com.bing.jiang.entity;
+package com.bing.model;
 
 import com.baomidou.mybatisplus.activerecord.Model;
 import com.baomidou.mybatisplus.annotations.TableName;
 import java.io.Serializable;
 
 
-
-import com.baomidou.mybatisplus.annotations.Version;
-
 import lombok.Data;
-import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
 
 /**
@@ -23,9 +19,11 @@ import lombok.experimental.Accessors;
 @Data
 @Accessors(chain = true)
 @TableName("t_model_chassis_tnk")
-public class TModelChassisTnk extends Model<TModelChassisTnk> {
+public class ModelChassisTnk extends Model<ModelChassisTnk> {
 
     private static final long serialVersionUID = 1L;
+
+    private Integer id;
 
     private String brand;
 
@@ -44,6 +42,8 @@ public class TModelChassisTnk extends Model<TModelChassisTnk> {
     private String motor1;
 
     private String motor;
+
+    private String product;
 
 
     @Override

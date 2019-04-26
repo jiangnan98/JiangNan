@@ -22,7 +22,7 @@ import javax.servlet.http.HttpServletResponse;
  * @Date 2018年10月24日
  */
 public class AuthSecurityInterceptor implements HandlerInterceptor {
-	Logger log = LogUtils.getExceptionLogger();
+	Logger log = LogUtils.getBussinessLogger();
 	@Override
 	public boolean preHandle(HttpServletRequest request,
                              HttpServletResponse response, Object handler) throws Exception {

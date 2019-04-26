@@ -1,17 +1,12 @@
-package com.bing.jiang.entity;
+package com.bing.model;
 
-import com.baomidou.mybatisplus.annotations.TableField;
 import com.baomidou.mybatisplus.activerecord.Model;
+import com.baomidou.mybatisplus.annotations.TableField;
 import com.baomidou.mybatisplus.annotations.TableName;
-import java.io.Serializable;
-
-
-
-import com.baomidou.mybatisplus.annotations.Version;
-
 import lombok.Data;
-import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
+
+import java.io.Serializable;
 
 /**
  * <p>
@@ -26,10 +21,12 @@ p_id为上级s_id
 @Data
 @Accessors(chain = true)
 @TableName("t_product_type")
-public class TProductType extends Model<TProductType> {
+public class ProductType extends Model<ProductType> {
 
     private static final long serialVersionUID = 1L;
 
+
+    private String id;
     /**
      * 商品类别名称
      */

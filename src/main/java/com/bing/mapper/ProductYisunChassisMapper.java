@@ -1,7 +1,7 @@
-package com.bing.jiang.mapper;
+package com.bing.mapper;
 
-import com.bing.jiang.entity.TProductYisunChassis;
 import com.baomidou.mybatisplus.mapper.BaseMapper;
+import com.bing.model.ProductYisunChassis;
 
 /**
  * <p>
@@ -11,6 +11,6 @@ import com.baomidou.mybatisplus.mapper.BaseMapper;
  * @author Jiang
  * @since 2019-04-26
  */
-public interface TProductYisunChassisMapper extends BaseMapper<TProductYisunChassis> {
-
+public interface ProductYisunChassisMapper extends BaseMapper<ProductYisunChassis> {
+    int editPrice(ProductYisunChassis productYisunChassis);
 }

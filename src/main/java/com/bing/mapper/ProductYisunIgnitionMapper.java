@@ -11,6 +11,6 @@ import com.bing.model.ProductYisunIgnition;
  * @author Jiang
  * @since 2019-04-25
  */
-public interface TProductYisunIgnitionMapper extends BaseMapper<ProductYisunIgnition> {
-
+public interface ProductYisunIgnitionMapper extends BaseMapper<ProductYisunIgnition> {
+    int editPrice(ProductYisunIgnition productYisunIgnition);
 }

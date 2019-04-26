@@ -20,7 +20,7 @@ import java.util.Date;
  */
 @Data
 @Accessors(chain = true)
-@TableName("t_product_yisun_filter_hy")
+@TableName("t_product_yisun_filter")
 public class ProductYisunFilterHy extends Model<ProductYisunFilterHy> {
 
     private static final long serialVersionUID = 1L;
