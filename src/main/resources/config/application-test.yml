@@ -6,7 +6,7 @@ spring:
   datasource:
     url: jdbc:mysql://47.92.36.109:3306/lizard_db?characterEncoding=utf8&serverTimezone=GMT&useSSL=true
     username: bhyx2608
-    password: Wd6QCBomwquNKClSBY6k9hBOPu5LESKE
+    password: Wd6QCBomwquaNKClSBY6k9hBOPu5LESKE
 logging:
   config: classpath:config/log4j2-test.yml
 mybatis-plus:
