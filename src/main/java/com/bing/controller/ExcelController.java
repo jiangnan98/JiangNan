@@ -62,59 +62,7 @@ public class ExcelController {
         return ResponseResult.success(testResVo);
     }
 
-    @PostMapping("test2")
-    public ResponseResult<TestResVo> test2(@RequestBody RequestParam<TestReqVo> testReqVo) throws Exception{
-        TestReqVo vo = testReqVo.getParams();
-        if(!VerifyUtil.verifyParams(vo)){
-            return ResponseResult.failNotice(LizardSystemCode.PARAMS_ERROR.msg());
-        }
-        TestResVo testResVo = new TestResVo();
-        testResVo.setTestName(vo.getTestName());
-        return ResponseResult.success(testResVo);
-    }
-
-    @PostMapping("hyFilter")
-    public void findList() throws Exception{
-        File file = new File("D:\\aaa\\data\\海业滤清.xlsx");
-        InputStream is = new FileInputStream(file);
-        Workbook wb = new XSSFWorkbook(is);
-        Sheet sheet = wb.getSheetAt(1);
-        is.close();
-
-        //获取行数
-        int rowLens = sheet.getLastRowNum();
-        log.info("行数："+rowLens);
-//        Row row = sheet.getRow(255);
-        //获取车型数据
-        for(int i = 0;i<rowLens;i++){
-            ProductYisunFilterHy productYisunFilterHy = new ProductYisunFilterHy();
-            productYisunFilterHy.setFactoryNum(ExcelUtil.getCellValue(sheet.getRow(i).getCell(8)));
-            //图片处理
-            String pic = ExcelUtil.getCellValue(sheet.getRow(i).getCell(9));
-            String path = "";
-            try{
-                URL url = new URL(pic);
-                HttpURLConnection conn = (HttpURLConnection)url.openConnection();
-                conn.setRequestMethod("GET");
-                //超时响应时间为5秒
-                conn.setConnectTimeout(5 * 1000);
-                //通过输入流获取图片数据
-                InputStream inStream = conn.getInputStream();
-                //得到图片的二进制数据，以二进制封装得到数据，具有通用性
-                byte[] data = readInputStream(inStream);
-                InputStream in = new ByteArrayInputStream(data);
-                MultipartFile multipartFile = new MockMultipartFile("a.jpg","a.jpg",ContentType.APPLICATION_OCTET_STREAM.toString(),in);
-                path =  aliOssUploadServer.fileOssUpload(multipartFile);
-                System.out.println("图片地址为："+path);
-            }catch (Exception e){
-                log.info("处理图片报错 行数："+i);
-            }
-            productYisunFilterHy.setCarousel(path);
-            productYisunFilterHy.setAnotherName(ExcelUtil.getCellValue(sheet.getRow(i).getCell(7)).replace("(0)","").replace("(1)",""));
-            productYisunFilterHy.setMarketEnable(0);
-            productYisunFilterHyMapper.insertAllColumn(productYisunFilterHy);
-        }
-    }
+    
 
 
     public static byte[] readInputStream(InputStream inStream) throws Exception{
