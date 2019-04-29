@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bing.mapper.ModelChassisTnkMapper">
+   <update id="editProduct" parameterType="com.bing.model.ProductYisunIgnition">
+       UPDATE
+       t_model_chassis_tnk
+       SET product = #{product}
+       where id = #{id}
+   </update>
+    <update id="editLetter" parameterType="com.bing.model.ProductYisunIgnition">
+       UPDATE
+       t_model_chassis_tnk
+       SET letter = #{letter}
+       where id = #{id}
+   </update>
+</mapper>
