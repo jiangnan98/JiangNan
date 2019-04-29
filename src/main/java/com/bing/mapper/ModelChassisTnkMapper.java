@@ -13,4 +13,6 @@ import com.bing.model.ModelChassisTnk;
  */
 public interface ModelChassisTnkMapper extends BaseMapper<ModelChassisTnk> {
     int editProduct(ModelChassisTnk modelChassisTnk);
+
+    int editLetter(ModelChassisTnk modelChassisTnk);
 }

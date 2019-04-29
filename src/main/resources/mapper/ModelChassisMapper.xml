@@ -7,4 +7,10 @@
        SET product = #{product}
        where id = #{id}
    </update>
+    <update id="editLetter" parameterType="com.bing.model.ProductYisunIgnition">
+       UPDATE
+       t_model_chassis_tnk
+       SET letter = #{letter}
+       where id = #{id}
+   </update>
 </mapper>

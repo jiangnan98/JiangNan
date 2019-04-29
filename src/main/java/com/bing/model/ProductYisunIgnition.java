@@ -21,7 +21,7 @@ import lombok.experimental.Accessors;
  */
 @Data
 @Accessors(chain = true)
-@TableName("t_product_yisun_ignition")
+@TableName("t_product_yisun_ignition_ngk")
 public class ProductYisunIgnition extends Model<ProductYisunIgnition> {
 
     private static final long serialVersionUID = 1L;

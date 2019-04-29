@@ -1,16 +1,63 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.bing.mapper.ModelChassisTnkMapper">
-   <update id="editProduct" parameterType="com.bing.model.ProductYisunIgnition">
-       UPDATE
-       t_model_chassis_tnk
-       SET product = #{product}
-       where id = #{id}
-   </update>
-    <update id="editLetter" parameterType="com.bing.model.ProductYisunIgnition">
-       UPDATE
-       t_model_chassis_tnk
-       SET letter = #{letter}
-       where id = #{id}
-   </update>
+<mapper namespace="com.bing.mapper.ProductYisunBrakMapper">
+    <resultMap id="BaseResultMap" type="com.bing.model.ProductYisunBrak">
+        <id column="product_id" property="productId" />
+        <result column="shop_id" property="shopId" />
+        <result column="classify_id" property="classifyId" />
+        <result column="spec_name" property="specName" />
+        <result column="oem" property="oem" />
+        <result column="stand_name" property="standName" />
+        <result column="another_name" property="anotherName" />
+        <result column="pac_spec" property="pacSpec" />
+        <result column="unit" property="unit" />
+        <result column="spec_m" property="specM" />
+        <result column="factory_num" property="factoryNum" />
+        <result column="exp_date" property="expDate" />
+        <result column="ourc_price" property="ourcPrice" />
+        <result column="price" property="price" />
+        <result column="carousel" property="carousel" />
+        <result column="detail" property="detail" />
+        <result column="describe" property="describe" />
+        <result column="business_type" property="businessType" />
+        <result column="quality" property="quality" />
+        <result column="buy_count" property="buyCount" />
+        <result column="stock_max" property="stockMax" />
+        <result column="market_enable" property="marketEnable" />
+        <result column="create_time" property="createTime" />
+        <result column="update_time" property="updateTime" />
+        <result column="comment_num" property="commentNum" />
+        <result column="comment_score" property="commentScore" />
+        <result column="expert_type" property="expertType" />
+        <result column="brand" property="brand" />
+        <result column="model" property="model" />
+        <result column="year" property="year" />
+        <result column="dis" property="dis" />
+        <result column="factory" property="factory" />
+        <result column="apply_model" property="applyModel" />
+        <result column="remark" property="remark" />
+        <result column="capacity" property="capacity" />
+        <result column="min_order_amount" property="minOrderAmount" />
+        <result column="packing_fee" property="packingFee" />
+    </resultMap>
+    <sql id="Base_Column_List">
+        product_id AS productId, shop_id AS shopId, classify_id AS classifyId, spec_name AS specName, oem, stand_name AS standName, another_name AS anotherName, pac_spec AS pacSpec, unit, spec_m AS specM, factory_num AS factoryNum, exp_date AS expDate, ourc_price AS ourcPrice, price, carousel, detail, describe, business_type AS businessType, quality, buy_count AS buyCount, stock_max AS stockMax, market_enable AS marketEnable, create_time AS createTime, update_time AS updateTime, comment_num AS commentNum, comment_score AS commentScore, expert_type AS expertType, brand, model, year, dis, factory, apply_model AS applyModel, remark, capacity, min_order_amount AS minOrderAmount, packing_fee AS packingFee
+    </sql>
+    <select id="findOne" parameterType="com.bing.model.ProductYisunBrak" resultMap="BaseResultMap">
+        select
+        *
+        from t_product_yisun_brak_copy1
+        where factory_num = #{factoryNum} and  spec_m = #{specM}
+    </select>
+    <update id="editModel" parameterType="com.bing.model.ProductYisunBrak">
+        update t_product_yisun_brak_copy1 set  model = #{model} where product_id = #{productId}
+    </update>
+    <update id="editBrak" parameterType="com.bing.model.ProductYisunBrak">
+        update t_product_yisun_brak_copy1
+        set price = #{price},
+            ourc_price = #{ourcPrice},
+            remark = #{remark},
+            apply_model = #{applyModel}
+        where factory_num = #{factoryNum} and spec_name = #{specName}
+    </update>
 </mapper>

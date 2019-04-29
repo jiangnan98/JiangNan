@@ -11,10 +11,7 @@ import com.bing.pack.ResponseResult;
 import com.bing.req.vo.TestReqVo;
 import com.bing.res.vo.TestResVo;
 import com.bing.service.ExcelService;
-import com.bing.util.ExcelUtil;
-import com.bing.util.LogUtils;
-import com.bing.util.MoneyUtils;
-import com.bing.util.VerifyUtil;
+import com.bing.util.*;
 import org.apache.commons.lang.StringUtils;
 import org.apache.http.entity.ContentType;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
@@ -66,6 +63,8 @@ public class ExcelController {
     ModelChassisTnkMapper modelChassisTnkMapper;
     @Autowired
     ProductYisunChassisMapper productYisunChassisMapper;
+    @Autowired
+    ModelBrakMofineMapper modelBrakMofineMapper;
 
     @Auth
     @PostMapping("testVerify")
@@ -151,7 +150,11 @@ public class ExcelController {
                    String strArr = ExcelUtil.getCellValue(sheet.getRow(i).getCell(11));
                    String[] strs = strArr.split("\n");
                    ProductYisunFilterHy productYisunFilterHy = new ProductYisunFilterHy();
+                   if(StringUtils.isBlank(s) || s.equals("-")){
+                       continue;
+                   }
                    productYisunFilterHy.setFactoryNum(s);
+                   productYisunFilterHy.setSpecName("汉格斯特");
                    EntityWrapper<ProductYisunFilterHy> productYisunFilterHyEntityWrapper = new EntityWrapper<>();
                    productYisunFilterHyEntityWrapper.setEntity(productYisunFilterHy);
                    List<ProductYisunFilterHy> productYisunFilterHyList = productYisunFilterHyMapper.selectList(productYisunFilterHyEntityWrapper);
@@ -392,7 +395,6 @@ public class ExcelController {
         int rowLens = sheet.getLastRowNum();
         log.info("行数："+rowLens);
         for(int i = 0;i<rowLens;i++) {
-            try{
                 ProductYisunIgnition productYisunIgnition = new ProductYisunIgnition();
                 productYisunIgnition.setOem(ExcelUtil.getCellValue(sheet.getRow(i).getCell(7)));
                 productYisunIgnition.setFactoryNum(ExcelUtil.getCellValue(sheet.getRow(i).getCell(8)));
@@ -444,12 +446,6 @@ public class ExcelController {
                 productYisunIgnition.setClassifyId("701");
                 productYisunIgnition.setSpecName("NGK");
                 productYisunIgnitionMapper.insert(productYisunIgnition);
-
-            }catch (Exception e){
-                log.info("错误行数："+i);
-                log.info("错误原因："+e.getMessage());
-            }
-
         }
 
     }
@@ -504,11 +500,11 @@ public class ExcelController {
                 modelChassisTnk.setBrand(ExcelUtil.getCellValue(sheet.getRow(i).getCell(0)));
                 modelChassisTnk.setModel(ExcelUtil.getCellValue(sheet.getRow(i).getCell(1)));
                 modelChassisTnk.setCategory(ExcelUtil.getCellValue(sheet.getRow(i).getCell(2)));
-                modelChassisTnk.setYear1(ExcelUtil.getCellValue(sheet.getRow(i).getCell(3)));
-                modelChassisTnk.setYear2(ExcelUtil.getCellValue(sheet.getRow(i).getCell(4)));
-                modelChassisTnk.setYear3(ExcelUtil.getCellValue(sheet.getRow(i).getCell(5)));
-                modelChassisTnk.setSwept(ExcelUtil.getCellValue(sheet.getRow(i).getCell(6)));
-                modelChassisTnk.setMotor1(ExcelUtil.getCellValue(sheet.getRow(i).getCell(7)));
+//                modelChassisTnk.setYear1(ExcelUtil.getCellValue(sheet.getRow(i).getCell(3)));
+//                modelChassisTnk.setYear2(ExcelUtil.getCellValue(sheet.getRow(i).getCell(4)));
+//                modelChassisTnk.setYear3(ExcelUtil.getCellValue(sheet.getRow(i).getCell(5)));
+//                modelChassisTnk.setSwept(ExcelUtil.getCellValue(sheet.getRow(i).getCell(6)));
+//                modelChassisTnk.setMotor1(ExcelUtil.getCellValue(sheet.getRow(i).getCell(7)));
                 modelChassisTnk.setMotor(ExcelUtil.getCellValue(sheet.getRow(i).getCell(8)));
                 EntityWrapper<ModelChassisTnk> modelChassisTnkEntityWrapper = new EntityWrapper<>();
                 modelChassisTnkEntityWrapper.setEntity(modelChassisTnk);
@@ -517,7 +513,7 @@ public class ExcelController {
                     continue;
                 }
                 modelChassisTnk.setId(tnk.get(0).getId());
-                modelChassisTnk.setProduct(ExcelUtil.getCellValue(sheet.getRow(i).getCell(9)));
+//                modelChassisTnk.setProduct(ExcelUtil.getCellValue(sheet.getRow(i).getCell(9)));
                 modelChassisTnkMapper.editProduct(modelChassisTnk);
             }catch (Exception e){
                 log.info("错误行数："+i);
@@ -546,7 +542,7 @@ public class ExcelController {
         for(int i = 1;i<rowLens;i++) {
             try{
                 ModelChassisTnk modelChassisTnk = new ModelChassisTnk();
-                modelChassisTnk.setProduct(ExcelUtil.getCellValue(sheet.getRow(i).getCell(0)));
+//                modelChassisTnk.setProduct(ExcelUtil.getCellValue(sheet.getRow(i).getCell(0)));
                 EntityWrapper<ModelChassisTnk> modelChassisTnkEntityWrapper = new EntityWrapper<>();
                 modelChassisTnkEntityWrapper.setEntity(modelChassisTnk);
                 List<ModelChassisTnk> tnk = modelChassisTnkMapper.selectList(modelChassisTnkEntityWrapper);
@@ -618,6 +614,33 @@ public class ExcelController {
         }
     }
 
+    @PostMapping("tnkLetter")
+    public void tnkLetter() throws Exception{
+        ModelChassisTnk modelChassisTnk = new ModelChassisTnk();
+        EntityWrapper<ModelChassisTnk> wrapper = new EntityWrapper<>();
+        wrapper.setEntity(modelChassisTnk);
+        List<ModelChassisTnk> chassisTnks = modelChassisTnkMapper.selectList(wrapper);
+        chassisTnks.forEach(chassisTnk->{
+           chassisTnk.setLetter(ChineseUtils.getPinYinHeadChar(chassisTnk.getBrand().substring(0,1)));
+           modelChassisTnkMapper.editLetter(chassisTnk);
+           return;
+        });
+    }
+
+
+
+    @PostMapping("mofineLetter")
+    public void mofineLetter() throws Exception{
+        ModelBrakMofine modelBrakMofine = new ModelBrakMofine();
+        EntityWrapper<ModelBrakMofine> wrapper = new EntityWrapper<>();
+        wrapper.setEntity(modelBrakMofine);
+        List<ModelBrakMofine> modelBrakMofines = modelBrakMofineMapper.selectList(wrapper);
+        modelBrakMofines.forEach(modelBrakMofine1 -> {
+            modelBrakMofine1.setLetter(ChineseUtils.getPinYinHeadChar(modelBrakMofine1.getBrandName()).substring(0,1));
+            modelBrakMofineMapper.updateById(modelBrakMofine1);
+        });
+    }
+
 
     public String fileUpload(String pic) throws Exception{
         String p = "";
@@ -649,5 +672,10 @@ public class ExcelController {
         inStream.close();
         //把outStream里的数据写入内存
         return outStream.toByteArray();
+    }
+
+    public static  void main(String[] args){
+        String str = "145/70R12";
+       System.out.println(str.substring(0,str.indexOf("/")));
     }
 }

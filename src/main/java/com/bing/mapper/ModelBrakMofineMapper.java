@@ -1,7 +1,7 @@
-package com.bing.jiang.mapper;
+package com.bing.mapper;
 
-import com.bing.jiang.entity.TModelBrakMofine;
 import com.baomidou.mybatisplus.mapper.BaseMapper;
+import com.bing.model.ModelBrakMofine;
 
 /**
  * <p>
@@ -11,6 +11,6 @@ import com.baomidou.mybatisplus.mapper.BaseMapper;
  * @author Jiang
  * @since 2019-04-28
  */
-public interface TModelBrakMofineMapper extends BaseMapper<TModelBrakMofine> {
+public interface ModelBrakMofineMapper extends BaseMapper<ModelBrakMofine> {
 
 }

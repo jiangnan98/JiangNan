@@ -31,19 +31,9 @@ public class ModelChassisTnk extends Model<ModelChassisTnk> {
 
     private String category;
 
-    private String year1;
-
-    private String year2;
-
-    private String year3;
-
-    private String swept;
-
-    private String motor1;
+    private String letter;
 
     private String motor;
-
-    private String product;
 
 
     @Override

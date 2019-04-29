@@ -8,11 +8,7 @@ import com.baomidou.mybatisplus.annotations.TableName;
 import java.io.Serializable;
 
 
-
-import com.baomidou.mybatisplus.annotations.Version;
-
 import lombok.Data;
-import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
 
 /**
@@ -25,8 +21,8 @@ import lombok.experimental.Accessors;
  */
 @Data
 @Accessors(chain = true)
-@TableName("t_product_yisun_brak")
-public class TProductYisunBrak extends Model<TProductYisunBrak> {
+@TableName("t_product_yisun_brak_copy1")
+public class ProductYisunBrak extends Model<ProductYisunBrak> {
 
     private static final long serialVersionUID = 1L;
 

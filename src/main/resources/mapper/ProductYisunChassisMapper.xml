@@ -8,4 +8,11 @@
         set  ourc_price = #{ourcPrice} ,price = #{price},unit = #{unit}
         where factory_num = #{factoryNum}
     </update>
+
+    <update id="findChassisAll">
+       select
+       *
+       from
+       t_product_yisun_Chassis
+    </update>
 </mapper>

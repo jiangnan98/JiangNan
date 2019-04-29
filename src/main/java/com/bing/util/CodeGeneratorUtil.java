@@ -16,7 +16,7 @@ public class CodeGeneratorUtil {
 
 	public static void main(String[] args) {
 //		t_model_filter_hy
-		String tableName="t_product_yisun_chassis";
+		String tableName="t_product_yisun_brak";
 		// 代码生成器
 		AutoGenerator mpg = new AutoGenerator();
 		// 全局配置

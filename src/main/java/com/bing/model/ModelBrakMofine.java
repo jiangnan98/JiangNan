@@ -1,4 +1,4 @@
-package com.bing.jiang.entity;
+package com.bing.model;
 
 import com.baomidou.mybatisplus.annotations.TableField;
 import com.baomidou.mybatisplus.activerecord.Model;
@@ -6,11 +6,7 @@ import com.baomidou.mybatisplus.annotations.TableName;
 import java.io.Serializable;
 
 
-
-import com.baomidou.mybatisplus.annotations.Version;
-
 import lombok.Data;
-import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
 
 /**
@@ -24,9 +20,13 @@ import lombok.experimental.Accessors;
 @Data
 @Accessors(chain = true)
 @TableName("t_model_brak_mofine")
-public class TModelBrakMofine extends Model<TModelBrakMofine> {
+public class ModelBrakMofine extends Model<ModelBrakMofine> {
 
     private static final long serialVersionUID = 1L;
+
+    private Integer id;
+
+    private String letter;
 
     private String brand;
 
