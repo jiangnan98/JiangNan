@@ -677,5 +677,7 @@ public class ExcelController {
     public static  void main(String[] args){
         String str = "145/70R12";
        System.out.println(str.substring(0,str.indexOf("/")));
+       System.out.println(str.substring(str.indexOf("R"),str.length()));
+       System.out.println(str.substring(str.indexOf("/")+1,str.indexOf("R")));
     }
 }

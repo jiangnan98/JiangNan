@@ -1,7 +1,8 @@
-package com.bing.jiang.mapper;
+package com.bing.mapper;
 
-import com.bing.jiang.entity.TProductYisunTire;
 import com.baomidou.mybatisplus.mapper.BaseMapper;
+import com.bing.model.ProductYisunTire;
+import org.springframework.stereotype.Repository;
 
 /**
  * <p>
@@ -11,6 +12,7 @@ import com.baomidou.mybatisplus.mapper.BaseMapper;
  * @author Jiang
  * @since 2019-04-29
  */
-public interface TProductYisunTireMapper extends BaseMapper<TProductYisunTire> {
+@Repository
+public interface ProductYisunTireMapper extends BaseMapper<ProductYisunTire> {
 
 }

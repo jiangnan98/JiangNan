@@ -1,7 +1,9 @@
-package com.bing.jiang.mapper;
+package com.bing.mapper;
 
-import com.bing.jiang.entity.TModelTireDlp;
 import com.baomidou.mybatisplus.mapper.BaseMapper;
+import com.bing.model.ModelTireDlp;
+
+import java.util.List;
 
 /**
  * <p>
@@ -11,6 +13,6 @@ import com.baomidou.mybatisplus.mapper.BaseMapper;
  * @author Jiang
  * @since 2019-04-29
  */
-public interface TModelTireDlpMapper extends BaseMapper<TModelTireDlp> {
-
+public interface ModelTireDlpMapper extends BaseMapper<ModelTireDlp> {
+  List<ModelTireDlp> findModel(ModelTireDlp modelTireDlp);
 }
