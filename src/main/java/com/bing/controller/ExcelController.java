@@ -1,5 +1,6 @@
 package com.bing.controller;
 
+import com.alibaba.fastjson.JSON;
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.bing.anno.Auth;
 import com.bing.mapper.*;
@@ -32,6 +33,7 @@ import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by IntelliJ IDEA.
@@ -675,9 +677,66 @@ public class ExcelController {
     }
 
     public static  void main(String[] args){
-        String str = "145/70R12";
-       System.out.println(str.substring(0,str.indexOf("/")));
-       System.out.println(str.substring(str.indexOf("R"),str.length()));
-       System.out.println(str.substring(str.indexOf("/")+1,str.indexOf("R")));
+        if(true){
+            System.out.println("12");
+        }else{
+            System.out.println("22");
+        }
+        String str = "{'直径': '282', '节圆直径': '114.3', '中心孔直径': '60', '制动盘厚度': '24', '最小厚度': '22', '总高': '42.5', '制动盘类型': '通风盘'}";
+        Map maps = (Map) JSON.parse(str);
+        maps.forEach((k, v) -> System.out.println("key:value = " + k + ":" + v));
+//        String[] strs = str.split("],");
+//        List<String> strings = new ArrayList<>();
+//        List<Pan> pans = new ArrayList<>();
+//        Pan pan = new Pan();
+//        for (String s : strs) {
+//            strings.add(s.replaceAll("\\[",""));
+//        }
+//        strings.forEach(s->{
+//            String[] sts = s.split(",");
+//            for (int i =0;i<sts.length;i++) {
+//                sts[i] =sts[i].replaceAll("\\]","").replaceAll("'","").replaceAll(" ","");
+//                if(i==0){
+//                    pan.setName(sts[i]);
+//                    pan.setFactory(null);
+//                }else{
+//                    List<String> a = pan.getFactory();
+//                    if(a==null)
+//                        a=new ArrayList<>();
+//                    a.add(sts[i]);
+//                   pan.setFactory(a);
+//                }
+//            }
+//            pans.add(pan);
+//        });
+        System.out.println("1");
+//        List<Pan> pans = new ArrayList<>();
+//        Pan pan = new Pan();
+//        for (String s : strs) {
+//            s = s.replaceAll("\\[","").replaceAll("\\]","").replaceAll("'","").replaceAll(" ","");
+//            System.out.println(s);
+//            if(s.equals("博世") || s.equals("TRW") || s.equals("泰明顿") || s.equals("菲罗多") || s.equals("AIMCO")){
+//                if(StringUtils.isNotBlank(pan.getName())){
+//                    pans.add(pan);
+//                    pan = new Pan();
+//                }
+//                pan.setName(s);
+//            }else{
+//                List<String> as = pan.getFactory();
+//                if(as == null)
+//                    as = new ArrayList<>();
+//                as.add(s);
+//                pan.setFactory(as);
+//            }
+//        }
+//        System.out.println("返回数据："+pans.toString());
+//        pans.forEach(pa->{
+//            System.out.println(pa.getFactory());
+//            System.out.println(pa.getFactory().size());
+//            pa.getFactory().forEach(st->{
+//                System.out.println(st);
+//            });
+//        });
     }
+
 }

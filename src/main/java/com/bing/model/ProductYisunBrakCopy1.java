@@ -17,17 +17,17 @@ import lombok.experimental.Accessors;
  * </p>
  *
  * @author Jiang
- * @since 2019-04-28
+ * @since 2019-04-30
  */
 @Data
 @Accessors(chain = true)
 @TableName("t_product_yisun_brak_copy1")
-public class ProductYisunBrak extends Model<ProductYisunBrak> {
+public class ProductYisunBrakCopy1 extends Model<ProductYisunBrakCopy1> {
 
     private static final long serialVersionUID = 1L;
 
     /**
-     * 商品pk
+     * 制动盘厚度【特殊属性】
      */
     @TableId("product_id")
     private String productId;
@@ -69,25 +69,6 @@ public class ProductYisunBrak extends Model<ProductYisunBrak> {
      */
     @TableField("pac_spec")
     private String pacSpec;
-
-    @TableField("disc_type")
-    private String discType;
-
-    @TableField("height")
-    private String height;
-
-    @TableField("disc_thickness")
-    private String discThickness;
-
-    @TableField("Pitch_diameter")
-    private String PitchDiameter;
-    @TableField("Minimum_thickness")
-    private String minimumThickness;
-    @TableField("diameter")
-    private String diameter;
-    @TableField("Center_hole_diameter")
-    private String CenterHoleDiameter;
-
 
     /**
      * 单位
@@ -216,6 +197,46 @@ public class ProductYisunBrak extends Model<ProductYisunBrak> {
      * 排量【专车专用】
      */
     private String dis;
+
+    /**
+     * 制动盘类型【特殊属性】
+     */
+    @TableField("disc_type")
+    private String discType;
+
+    /**
+     * 总高【特殊属性】
+     */
+    private String height;
+
+    /**
+     * 制动盘厚度【特殊属性】
+     */
+    @TableField("disc_thickness")
+    private String discThickness;
+
+    /**
+     * 节圆直径【特殊属性】
+     */
+    @TableField("Pitch_diameter")
+    private String pitchDiameter;
+
+    /**
+     * 最小厚度【特殊属性】
+     */
+    @TableField("Minimum_thickness")
+    private String minimumThickness;
+
+    /**
+     * 直径【特殊属性】
+     */
+    private String diameter;
+
+    /**
+     * 中心孔直径【特殊属性】
+     */
+    @TableField("Center_hole_diameter")
+    private String centerHoleDiameter;
 
     /**
      * 厂商【专车专用】
