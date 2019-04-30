@@ -22,7 +22,7 @@ import javax.servlet.http.HttpServletResponse;
  * @Date 2018年10月24日
  */
 public class AuthSecurityInterceptor implements HandlerInterceptor {
-	Logger log = LogUtils.getExceptionLogger();
+	Logger log = LogUtils.getPlatformLogger();
 	@Override
 	public boolean preHandle(HttpServletRequest request,
                              HttpServletResponse response, Object handler) throws Exception {
@@ -32,8 +32,6 @@ public class AuthSecurityInterceptor implements HandlerInterceptor {
 			HandlerMethod method = (HandlerMethod) handler;
 			Auth auth = method.getMethod().getAnnotation(Auth.class);
 			if (auth != null) {
-				String loginId = request.getHeader("loginId");// 用户登录id
-				String token = request.getHeader("token");
 				result = false;
 			} else {
 				return true;

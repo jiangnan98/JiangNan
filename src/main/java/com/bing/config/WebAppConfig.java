@@ -15,7 +15,7 @@ public class WebAppConfig extends WebMvcConfigurationSupport {
 
 	@Override
 	public void addInterceptors(InterceptorRegistry registry) {
-		registry.addInterceptor(setAuthSecurityInterceptor());
+		registry.addInterceptor(setAuthSecurityInterceptor()).addPathPatterns("/**");
 	}
 
 	@Bean

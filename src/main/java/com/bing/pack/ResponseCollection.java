@@ -147,6 +147,10 @@ public class ResponseCollection<R> implements Serializable {
 		return new ResponseCollection<T>(LizardSystemCode.SUCCESS,result);
 	}
 
+	public static <T> ResponseCollection<T> failException(Collection<T> result) {
+		return new ResponseCollection<T>(LizardSystemCode.FAIL,result);
+	}
+
 	public String toJsonString() {
 		return "{\"code\":" + code + ",\"msg\":\"" + msg + "\"}";
 	}

@@ -57,6 +57,7 @@ public class ExcelController {
         if(!VerifyUtil.verifyParams(vo)){
             return ResponseResult.failNotice(LizardSystemCode.PARAMS_ERROR.msg());
         }
+        System.out.println("1");
         TestResVo testResVo = new TestResVo();
         testResVo.setTestName(vo.getTestName());
         return ResponseResult.success(testResVo);

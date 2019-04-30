@@ -127,6 +127,9 @@ public class ResponseResult<R> implements Serializable {
 	public static <T> ResponseResult<T> success(T result) {
 		return new ResponseResult<T>(LizardSystemCode.SUCCESS, result);
 	}
+	public static <T> ResponseResult<T> failException(T result) {
+		return new ResponseResult<T>(LizardSystemCode.FAIL, result);
+	}
 
 	public static <T> ResponseResult<T> success(String message, T result) {
 		return new ResponseResult<T>(LizardSystemCode.SUCCESS.code(), message,
