@@ -6,6 +6,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import javax.annotation.Resource;
 
@@ -14,25 +15,15 @@ import javax.annotation.Resource;
  *
  */
 @Configuration
-public class WebAppConfig extends WebMvcConfigurationSupport{
+public class WebAppConfig implements WebMvcConfigurer {
 
 	@Resource
-	private MyInterceptor myInterceptor;
-
+	private AuthSecurityInterceptor authSecurityInterceptor;
 
 	@Override
-	public void addResourceHandlers(ResourceHandlerRegistry registry) {
-		System.out.println("拦截器启动");
-		registry.addResourceHandler("/static/**")
-				.addResourceLocations("classpath:/static/");
-		registry.addResourceHandler("/templates/**")
-				.addResourceLocations("classpath:/templates/");
-		super.addResourceHandlers(registry);
-	}
 	public void addInterceptors(InterceptorRegistry registry) {
-		System.out.println("拦截器启动");
-		registry.addInterceptor(myInterceptor).addPathPatterns("/**");
-		super.addInterceptors(registry);
+		registry.addInterceptor(authSecurityInterceptor)
+				.addPathPatterns("/**");
 	}
 
 }

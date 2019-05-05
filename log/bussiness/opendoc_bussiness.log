@@ -1,1 +1,2 @@
-2019-05-05 11:00:52.242 - INFO  [nio-8899-exec-1] c.b.e.GlobalExceptionHandler   : 进入异常处理
+2019-05-05 13:52:09.909 - INFO  [nio-8899-exec-1] c.b.c.BrakExcelController      : 行数：255
+2019-05-05 13:55:02.155 - INFO  [nio-8899-exec-4] c.b.c.BrakExcelController      : 行数：255
