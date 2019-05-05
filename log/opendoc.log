@@ -1,28 +1,19 @@
-2019-04-30 18:43:55.625 - INFO  [           main] o.s.b.StartupInfoLogger        : Starting JiangNanApplication on DESKTOP-9CK0F4O with PID 19132 (D:\ideaProject\jiang_nan\target\classes started by Administrator in D:\ideaProject\jiang_nan)
-2019-04-30 18:43:55.773 - INFO  [           main] o.s.b.SpringApplication        : The following profiles are active: test
-2019-04-30 18:43:56.951 - INFO  [           main] o.s.b.w.e.t.TomcatWebServer    : Tomcat initialized with port(s): 8899 (http)
-2019-04-30 18:43:56.961 - INFO  [           main] o.a.j.l.DirectJDKLog           : Initializing ProtocolHandler ["http-nio-8899"]
-2019-04-30 18:43:56.968 - INFO  [           main] o.a.j.l.DirectJDKLog           : Starting service [Tomcat]
-2019-04-30 18:43:56.968 - INFO  [           main] o.a.j.l.DirectJDKLog           : Starting Servlet engine: [Apache Tomcat/9.0.17]
-2019-04-30 18:43:56.973 - INFO  [           main] o.a.j.l.DirectJDKLog           : An older version [1.2.16] of the APR based Apache Tomcat Native library is installed, while Tomcat recommends a minimum version of [1.2.21]
-2019-04-30 18:43:56.973 - INFO  [           main] o.a.j.l.DirectJDKLog           : Loaded APR based Apache Tomcat Native library [1.2.16] using APR version [1.6.3].
-2019-04-30 18:43:56.973 - INFO  [           main] o.a.j.l.DirectJDKLog           : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
-2019-04-30 18:43:56.974 - INFO  [           main] o.a.j.l.DirectJDKLog           : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
-2019-04-30 18:43:58.033 - INFO  [           main] o.a.j.l.DirectJDKLog           : OpenSSL successfully initialized [OpenSSL 1.0.2m  2 Nov 2017]
-2019-04-30 18:43:58.141 - INFO  [           main] o.a.j.l.DirectJDKLog           : Initializing Spring embedded WebApplicationContext
-2019-04-30 18:43:58.141 - INFO  [           main] letWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2338 ms
-2019-04-30 18:43:58.301 - INFO  [           main] c.z.h.HikariDataSource         : HikariPool-1 - Starting...
-2019-04-30 18:43:58.734 - INFO  [           main] c.z.h.HikariDataSource         : HikariPool-1 - Start completed.
-2019-04-30 18:43:59.721 - INFO  [           main] c.ExecutorConfigurationSupport : Initializing ExecutorService 'taskScheduler'
-2019-04-30 18:43:59.765 - INFO  [           main] o.a.j.l.DirectJDKLog           : Starting ProtocolHandler ["http-nio-8899"]
-2019-04-30 18:43:59.783 - INFO  [           main] o.s.b.w.e.t.TomcatWebServer    : Tomcat started on port(s): 8899 (http) with context path '/jiang_nan'
-2019-04-30 18:43:59.785 - INFO  [           main] o.s.b.StartupInfoLogger        : Started JiangNanApplication in 5.025 seconds (JVM running for 6.342)
-2019-04-30 18:44:03.474 - INFO  [nio-8899-exec-1] o.a.j.l.DirectJDKLog           : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2019-04-30 18:44:03.475 - INFO  [nio-8899-exec-1] o.s.w.s.FrameworkServlet       : Initializing Servlet 'dispatcherServlet'
-2019-04-30 18:44:03.485 - INFO  [nio-8899-exec-1] o.s.w.s.FrameworkServlet       : Completed initialization in 10 ms
-2019-04-30 18:44:03.505 - INFO  [nio-8899-exec-1] c.b.a.ControllerAspect         : ---------------BEGIN REQUEST-------------
-2019-04-30 18:44:03.505 - INFO  [nio-8899-exec-1] c.b.a.ControllerAspect         : REQUEST URL : http://localhost:8899/jiang_nan/BrakExcel/SDData
-2019-04-30 18:44:03.505 - INFO  [nio-8899-exec-1] c.b.a.ControllerAspect         : HTTP_METHOD : POST
-2019-04-30 18:44:03.507 - INFO  [nio-8899-exec-1] c.b.a.ControllerAspect         : IP : 0:0:0:0:0:0:0:1
-2019-04-30 18:44:03.508 - INFO  [nio-8899-exec-1] c.b.a.ControllerAspect         : CLASS_METHOD : com.bing.controller.BrakExcelController.SDData
-2019-04-30 18:44:03.511 - INFO  [nio-8899-exec-1] c.b.a.ControllerAspect         : REQUEST PARAMS : []
+2019-05-05 10:57:59.989 - INFO  [           main] o.s.b.StartupInfoLogger        : Starting JiangNanApplication on DESKTOP-9CK0F4O with PID 14872 (D:\ideaProject\jiang_nan\target\classes started by Administrator in D:\ideaProject\jiang_nan)
+2019-05-05 10:58:00.161 - INFO  [           main] o.s.b.SpringApplication        : The following profiles are active: test
+2019-05-05 10:58:01.555 - INFO  [           main] o.s.b.w.e.t.TomcatWebServer    : Tomcat initialized with port(s): 8899 (http)
+2019-05-05 10:58:01.569 - INFO  [           main] o.a.j.l.DirectJDKLog           : Initializing ProtocolHandler ["http-nio-8899"]
+2019-05-05 10:58:01.577 - INFO  [           main] o.a.j.l.DirectJDKLog           : Starting service [Tomcat]
+2019-05-05 10:58:01.578 - INFO  [           main] o.a.j.l.DirectJDKLog           : Starting Servlet engine: [Apache Tomcat/9.0.17]
+2019-05-05 10:58:01.584 - INFO  [           main] o.a.j.l.DirectJDKLog           : An older version [1.2.16] of the APR based Apache Tomcat Native library is installed, while Tomcat recommends a minimum version of [1.2.21]
+2019-05-05 10:58:01.584 - INFO  [           main] o.a.j.l.DirectJDKLog           : Loaded APR based Apache Tomcat Native library [1.2.16] using APR version [1.6.3].
+2019-05-05 10:58:01.584 - INFO  [           main] o.a.j.l.DirectJDKLog           : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+2019-05-05 10:58:01.584 - INFO  [           main] o.a.j.l.DirectJDKLog           : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2019-05-05 10:58:02.718 - INFO  [           main] o.a.j.l.DirectJDKLog           : OpenSSL successfully initialized [OpenSSL 1.0.2m  2 Nov 2017]
+2019-05-05 10:58:02.832 - INFO  [           main] o.a.j.l.DirectJDKLog           : Initializing Spring embedded WebApplicationContext
+2019-05-05 10:58:02.832 - INFO  [           main] letWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2635 ms
+2019-05-05 10:58:03.030 - INFO  [           main] c.z.h.HikariDataSource         : HikariPool-1 - Starting...
+2019-05-05 10:58:03.404 - INFO  [           main] c.z.h.HikariDataSource         : HikariPool-1 - Start completed.
+2019-05-05 10:58:05.039 - INFO  [           main] c.ExecutorConfigurationSupport : Initializing ExecutorService 'taskScheduler'
+2019-05-05 10:58:05.094 - INFO  [           main] o.a.j.l.DirectJDKLog           : Starting ProtocolHandler ["http-nio-8899"]
+2019-05-05 10:58:05.116 - INFO  [           main] o.s.b.w.e.t.TomcatWebServer    : Tomcat started on port(s): 8899 (http) with context path '/jiang_nan'
+2019-05-05 10:58:05.121 - INFO  [           main] o.s.b.StartupInfoLogger        : Started JiangNanApplication in 6.307 seconds (JVM running for 7.779)

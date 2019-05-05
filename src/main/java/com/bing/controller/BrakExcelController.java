@@ -343,11 +343,11 @@ public class BrakExcelController {
                 log.info("处理车型出错："+j);
             }
             Map ma = (Map) JSON.parse(ExcelUtil.getCellValue(sheet.getRow(j).getCell(6)));
-            pans.forEach(p->{
+            pans.forEach(p-> {
                 //品牌
                 productYisunBrak.setSpecName(p.getName());
-                try{
-                    p.getFactory().forEach(f->{
+                try {
+                    p.getFactory().forEach(f -> {
                         //添加产品
                         productYisunBrak.setProductId(null);
                         productYisunBrak.setFactoryNum(f);
@@ -359,7 +359,7 @@ public class BrakExcelController {
                         productYisunBrak.setCenterHoleDiameter(ma.get("中心孔直径").toString());
                         productYisunBrakMapper.insert(productYisunBrak);
                     });
-                }catch (Exception e){
+                } catch (Exception e) {
                 }
             });
         }
