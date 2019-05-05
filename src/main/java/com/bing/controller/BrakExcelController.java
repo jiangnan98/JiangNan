@@ -21,6 +21,7 @@ import org.apache.http.entity.ContentType;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.apache.velocity.runtime.directive.Break;
 import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mock.web.MockMultipartFile;
@@ -364,6 +365,33 @@ public class BrakExcelController {
             });
         }
     }
+
+
+    @PostMapping("FLDPrice")
+    public void FLDPrice() throws Exception {
+        File file = new File("D:\\aaa\\data\\菲罗多异常(1).xlsx");
+        InputStream is = new FileInputStream(file);
+        Workbook wb = new XSSFWorkbook(is);
+        Sheet sheet = wb.getSheetAt(0);
+        is.close();
+        //获取行数
+        int rowLens = sheet.getLastRowNum();
+        log.info("行数：" + rowLens);
+        //获取车型数据
+        for (int j = 1; j < rowLens; j++) {
+            String factoryNum = ExcelUtil.getCellValue(sheet.getRow(j).getCell(0)).replaceAll("-D","");
+            Integer price = Integer.valueOf(MoneyUtils.moneyYuanToFen(ExcelUtil.getCellValue(sheet.getRow(j).getCell(2))));
+            Integer ourcPrice = Integer.valueOf(MoneyUtils.moneyYuanToFen(ExcelUtil.getCellValue(sheet.getRow(j).getCell(1))));
+            ProductYisunBrak productYisunBrak = new ProductYisunBrak();
+            productYisunBrak.setFactoryNum(factoryNum);
+            productYisunBrak.setPrice(price);
+            productYisunBrak.setOurcPrice(ourcPrice);
+
+            productYisunBrakMapper.updateById(productYisunBrak);
+        }
+
+    }
+
 
 
     public String fileUpload(String pic) throws Exception{

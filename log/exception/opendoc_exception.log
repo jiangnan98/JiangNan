@@ -1,8 +1,10 @@
-2019-04-30 18:37:40.394 -ERROR  [nio-8899-exec-2] o.a.j.l.DirectJDKLog           : Servlet.service() for servlet [dispatcherServlet] in context with path [/jiang_nan] threw exception [Request processing failed; nested exception is java.lang.NullPointerException] with root cause
-java.lang.NullPointerException: null
-	at com.bing.controller.BrakExcelController.lambda$SDData$5(BrakExcelController.java:349) ~[classes/:?]
-	at java.util.ArrayList.forEach(ArrayList.java:1257) ~[?:1.8.0_172]
-	at com.bing.controller.BrakExcelController.SDData(BrakExcelController.java:346) ~[classes/:?]
+2019-05-05 13:52:19.209 -ERROR  [nio-8899-exec-1] o.a.j.l.DirectJDKLog           : Servlet.service() for servlet [dispatcherServlet] in context with path [/jiang_nan] threw exception [Request processing failed; nested exception is java.lang.NumberFormatException: For input string: "SUM(#REF!*1"] with root cause
+java.lang.NumberFormatException: For input string: "SUM(#REF!*1"
+	at java.lang.NumberFormatException.forInputString(NumberFormatException.java:65) ~[?:1.8.0_172]
+	at java.lang.Integer.parseInt(Integer.java:580) ~[?:1.8.0_172]
+	at java.lang.Integer.parseInt(Integer.java:615) ~[?:1.8.0_172]
+	at com.bing.util.MoneyUtils.moneyYuanToFen(MoneyUtils.java:32) ~[classes/:?]
+	at com.bing.controller.BrakExcelController.FLDPrice(BrakExcelController.java:383) ~[classes/:?]
 	at com.bing.controller.BrakExcelController$$FastClassBySpringCGLIB$$218d59e8.invoke(<generated>) ~[classes/:?]
 	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218) ~[spring-core-5.1.6.RELEASE.jar:5.1.6.RELEASE]
 	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:749) ~[spring-aop-5.1.6.RELEASE.jar:5.1.6.RELEASE]
@@ -20,7 +22,7 @@ java.lang.NullPointerException: null
 	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:93) ~[spring-aop-5.1.6.RELEASE.jar:5.1.6.RELEASE]
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.1.6.RELEASE.jar:5.1.6.RELEASE]
 	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:688) ~[spring-aop-5.1.6.RELEASE.jar:5.1.6.RELEASE]
-	at com.bing.controller.BrakExcelController$$EnhancerBySpringCGLIB$$d6ba27f2.SDData(<generated>) ~[classes/:?]
+	at com.bing.controller.BrakExcelController$$EnhancerBySpringCGLIB$$909f3a.FLDPrice(<generated>) ~[classes/:?]
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_172]
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:1.8.0_172]
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.8.0_172]
