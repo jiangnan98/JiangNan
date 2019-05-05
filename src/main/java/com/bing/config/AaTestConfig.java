@@ -1,6 +1,6 @@
-package com.bhyx.lizard.core.config;
+package com.bing.config;
 
-import com.bhyx.lizard.core.adapter.AaAdapter;
+import com.bing.adapter.AaAdapter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;

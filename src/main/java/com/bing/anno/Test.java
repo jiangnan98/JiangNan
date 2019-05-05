@@ -1,4 +1,4 @@
-package com.bhyx.lizard.core.anno;
+package com.bing.anno;
 
 import java.lang.annotation.*;
 

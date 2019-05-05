@@ -8,6 +8,7 @@ import com.bing.pack.ResponseResult;
 import com.bing.util.LogUtils;
 import com.google.gson.Gson;
 import org.slf4j.Logger;
+import org.springframework.stereotype.Component;
 import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
@@ -21,13 +22,14 @@ import javax.servlet.http.HttpServletResponse;
  * @Author Wisty
  * @Date 2018年10月24日
  */
+@Component
 public class AuthSecurityInterceptor implements HandlerInterceptor {
 	Logger log = LogUtils.getPlatformLogger();
 	@Override
 	public boolean preHandle(HttpServletRequest request,
                              HttpServletResponse response, Object handler) throws Exception {
 		boolean result = false;
-		log.info("进入了切面");
+		System.out.println("进入了切面");
 		if(handler instanceof HandlerMethod) {
 			HandlerMethod method = (HandlerMethod) handler;
 			Auth auth = method.getMethod().getAnnotation(Auth.class);

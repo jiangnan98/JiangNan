@@ -1,6 +1,7 @@
 package com.bing.controller;
 
 import com.bing.anno.Auth;
+import com.bing.anno.Test;
 import com.bing.mapper.ProductYisunFilterHyMapper;
 import com.bing.middleware.AliOssUploadServer;
 import com.bing.model.ProductYisunFilterHy;
@@ -50,7 +51,7 @@ public class ExcelController {
     @Autowired
     AliOssUploadServer aliOssUploadServer;
 
-    @Auth
+    @Test
     @PostMapping("testVerify")
     public ResponseResult<TestResVo> testVerify(@RequestBody RequestParam<TestReqVo> testReqVo) throws Exception{
         TestReqVo vo = testReqVo.getParams();

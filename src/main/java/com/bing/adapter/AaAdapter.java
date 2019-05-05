@@ -1,6 +1,6 @@
-package com.bhyx.lizard.core.adapter;
+package com.bing.adapter;
 
-import com.bhyx.lizard.core.anno.Test;
+import com.bing.anno.Test;
 import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
