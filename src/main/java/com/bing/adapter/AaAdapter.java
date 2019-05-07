@@ -1,6 +1,7 @@
 package com.bing.adapter;
 
-import com.bing.anno.Test;
+import com.bing.anno.Auth;
+import org.springframework.stereotype.Component;
 import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
@@ -15,6 +16,7 @@ import javax.servlet.http.HttpServletResponse;
  * Time: 11:46
  * To change this template use File | Setting | File Template.
  **/
+@Component
 public class AaAdapter implements HandlerInterceptor {
 
     @Override
@@ -23,12 +25,11 @@ public class AaAdapter implements HandlerInterceptor {
         boolean result = false;
         if (handler instanceof HandlerMethod) {
             HandlerMethod method = (HandlerMethod) handler;
-            Test auth = method.getMethod().getAnnotation(Test.class);
+            Auth auth = method.getMethod().getAnnotation(Auth.class);
             System.out.println("进入切面");
             if (auth != null) {
-                result = true;
+                result = false;
             }
-
         }
         return result;
     }

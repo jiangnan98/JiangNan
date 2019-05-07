@@ -1,30 +1,224 @@
-2019-05-05 14:16:49.211 - INFO  [           main] o.s.b.StartupInfoLogger        : Starting JiangNanApplication on DESKTOP-9CK0F4O with PID 7916 (D:\ideaProject\jiang_nan\target\classes started by Administrator in D:\ideaProject\jiang_nan)
-2019-05-05 14:16:49.359 - INFO  [           main] o.s.b.SpringApplication        : The following profiles are active: test
-2019-05-05 14:16:50.440 - INFO  [           main] o.s.b.w.e.t.TomcatWebServer    : Tomcat initialized with port(s): 8899 (http)
-2019-05-05 14:16:50.449 - INFO  [           main] o.a.j.l.DirectJDKLog           : Initializing ProtocolHandler ["http-nio-8899"]
-2019-05-05 14:16:50.457 - INFO  [           main] o.a.j.l.DirectJDKLog           : Starting service [Tomcat]
-2019-05-05 14:16:50.457 - INFO  [           main] o.a.j.l.DirectJDKLog           : Starting Servlet engine: [Apache Tomcat/9.0.17]
-2019-05-05 14:16:50.462 - INFO  [           main] o.a.j.l.DirectJDKLog           : An older version [1.2.16] of the APR based Apache Tomcat Native library is installed, while Tomcat recommends a minimum version of [1.2.21]
-2019-05-05 14:16:50.462 - INFO  [           main] o.a.j.l.DirectJDKLog           : Loaded APR based Apache Tomcat Native library [1.2.16] using APR version [1.6.3].
-2019-05-05 14:16:50.462 - INFO  [           main] o.a.j.l.DirectJDKLog           : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
-2019-05-05 14:16:50.463 - INFO  [           main] o.a.j.l.DirectJDKLog           : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
-2019-05-05 14:16:51.498 - INFO  [           main] o.a.j.l.DirectJDKLog           : OpenSSL successfully initialized [OpenSSL 1.0.2m  2 Nov 2017]
-2019-05-05 14:16:51.606 - INFO  [           main] o.a.j.l.DirectJDKLog           : Initializing Spring embedded WebApplicationContext
-2019-05-05 14:16:51.606 - INFO  [           main] letWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2209 ms
-2019-05-05 14:16:51.788 - INFO  [           main] c.z.h.HikariDataSource         : HikariPool-1 - Starting...
-2019-05-05 14:16:52.080 - INFO  [           main] c.z.h.HikariDataSource         : HikariPool-1 - Start completed.
-2019-05-05 14:16:52.890 - INFO  [           main] c.ExecutorConfigurationSupport : Initializing ExecutorService 'taskScheduler'
-2019-05-05 14:16:52.972 - INFO  [           main] o.a.j.l.DirectJDKLog           : Starting ProtocolHandler ["http-nio-8899"]
-2019-05-05 14:16:52.994 - INFO  [           main] o.s.b.w.e.t.TomcatWebServer    : Tomcat started on port(s): 8899 (http) with context path '/jiang_nan'
-2019-05-05 14:16:52.996 - INFO  [           main] o.s.b.StartupInfoLogger        : Started JiangNanApplication in 4.512 seconds (JVM running for 5.705)
-2019-05-05 14:16:54.949 - INFO  [nio-8899-exec-1] o.a.j.l.DirectJDKLog           : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2019-05-05 14:16:54.950 - INFO  [nio-8899-exec-1] o.s.w.s.FrameworkServlet       : Initializing Servlet 'dispatcherServlet'
-2019-05-05 14:16:54.956 - INFO  [nio-8899-exec-1] o.s.w.s.FrameworkServlet       : Completed initialization in 6 ms
-2019-05-05 14:16:54.988 - INFO  [nio-8899-exec-1] c.b.a.ControllerAspect         : ---------------BEGIN REQUEST-------------
-2019-05-05 14:16:54.988 - INFO  [nio-8899-exec-1] c.b.a.ControllerAspect         : REQUEST URL : http://localhost:8899/jiang_nan/excel/testVerify
-2019-05-05 14:16:54.988 - INFO  [nio-8899-exec-1] c.b.a.ControllerAspect         : HTTP_METHOD : POST
-2019-05-05 14:16:54.989 - INFO  [nio-8899-exec-1] c.b.a.ControllerAspect         : IP : 0:0:0:0:0:0:0:1
-2019-05-05 14:16:54.990 - INFO  [nio-8899-exec-1] c.b.a.ControllerAspect         : CLASS_METHOD : com.bing.controller.ExcelController.testVerify
-2019-05-05 14:16:54.993 - INFO  [nio-8899-exec-1] c.b.a.ControllerAspect         : REQUEST PARAMS : [{"params":{"testId":"1"}}]
-2019-05-05 14:16:54.997 - INFO  [nio-8899-exec-1] c.b.a.ControllerAspect         : RESPONSE TIME : 9 ms!
-2019-05-05 14:16:54.998 - INFO  [nio-8899-exec-1] c.b.a.ControllerAspect         : ---------------END REQUEST-------------
+2019-05-07 16:26:50.376 - INFO  [           main] o.s.b.StartupInfoLogger        : Starting JiangNanApplication on DESKTOP-9CK0F4O with PID 1392 (D:\ideaProject\jiang_nan\target\classes started by Administrator in D:\ideaProject\jiang_nan)
+2019-05-07 16:26:50.536 - INFO  [           main] o.s.b.SpringApplication        : The following profiles are active: test
+2019-05-07 16:26:51.761 - INFO  [           main] o.s.b.w.e.t.TomcatWebServer    : Tomcat initialized with port(s): 8899 (http)
+2019-05-07 16:26:51.775 - INFO  [           main] o.a.j.l.DirectJDKLog           : Initializing ProtocolHandler ["http-nio-8899"]
+2019-05-07 16:26:51.782 - INFO  [           main] o.a.j.l.DirectJDKLog           : Starting service [Tomcat]
+2019-05-07 16:26:51.783 - INFO  [           main] o.a.j.l.DirectJDKLog           : Starting Servlet engine: [Apache Tomcat/9.0.17]
+2019-05-07 16:26:51.789 - INFO  [           main] o.a.j.l.DirectJDKLog           : An older version [1.2.16] of the APR based Apache Tomcat Native library is installed, while Tomcat recommends a minimum version of [1.2.21]
+2019-05-07 16:26:51.789 - INFO  [           main] o.a.j.l.DirectJDKLog           : Loaded APR based Apache Tomcat Native library [1.2.16] using APR version [1.6.3].
+2019-05-07 16:26:51.790 - INFO  [           main] o.a.j.l.DirectJDKLog           : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+2019-05-07 16:26:51.790 - INFO  [           main] o.a.j.l.DirectJDKLog           : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2019-05-07 16:26:52.837 - INFO  [           main] o.a.j.l.DirectJDKLog           : OpenSSL successfully initialized [OpenSSL 1.0.2m  2 Nov 2017]
+2019-05-07 16:26:52.942 - INFO  [           main] o.a.j.l.DirectJDKLog           : Initializing Spring embedded WebApplicationContext
+2019-05-07 16:26:52.942 - INFO  [           main] letWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2368 ms
+2019-05-07 16:26:52.980 - INFO  [           main] .b.w.s.DynamicRegistrationBean : Filter CorsFilter was not registered (possibly already registered?)
+2019-05-07 16:26:53.152 - INFO  [           main] c.z.h.HikariDataSource         : HikariPool-1 - Starting...
+2019-05-07 16:26:53.630 - INFO  [           main] c.z.h.HikariDataSource         : HikariPool-1 - Start completed.
+2019-05-07 16:26:54.456 - INFO  [           main] c.ExecutorConfigurationSupport : Initializing ExecutorService 'taskScheduler'
+2019-05-07 16:26:54.511 - INFO  [           main] o.a.j.l.DirectJDKLog           : Starting ProtocolHandler ["http-nio-8899"]
+2019-05-07 16:26:54.531 - INFO  [           main] o.s.b.w.e.t.TomcatWebServer    : Tomcat started on port(s): 8899 (http) with context path '/jiang_nan'
+2019-05-07 16:26:54.535 - INFO  [           main] o.s.b.StartupInfoLogger        : Started JiangNanApplication in 5.043 seconds (JVM running for 6.399)
+2019-05-07 16:26:58.422 - INFO  [nio-8899-exec-1] o.a.j.l.DirectJDKLog           : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-05-07 16:26:58.422 - INFO  [nio-8899-exec-1] o.s.w.s.FrameworkServlet       : Initializing Servlet 'dispatcherServlet'
+2019-05-07 16:26:58.435 - INFO  [nio-8899-exec-1] o.s.w.s.FrameworkServlet       : Completed initialization in 13 ms
+2019-05-07 16:26:58.480 - INFO  [nio-8899-exec-1] c.b.a.ControllerAspect         : ---------------BEGIN REQUEST-------------
+2019-05-07 16:26:58.481 - INFO  [nio-8899-exec-1] c.b.a.ControllerAspect         : REQUEST URL : http://localhost:8899/jiang_nan/excel/testVerify
+2019-05-07 16:26:58.481 - INFO  [nio-8899-exec-1] c.b.a.ControllerAspect         : HTTP_METHOD : POST
+2019-05-07 16:26:58.483 - INFO  [nio-8899-exec-1] c.b.a.ControllerAspect         : IP : 0:0:0:0:0:0:0:1
+2019-05-07 16:26:58.485 - INFO  [nio-8899-exec-1] c.b.a.ControllerAspect         : CLASS_METHOD : com.bing.controller.ExcelController.testVerify
+2019-05-07 16:26:58.490 - INFO  [nio-8899-exec-1] c.b.a.ControllerAspect         : REQUEST PARAMS : [{"params":{"testId":"1"}}]
+2019-05-07 16:26:58.494 - INFO  [nio-8899-exec-1] c.b.a.ControllerAspect         : RESPONSE TIME : 14 ms!
+2019-05-07 16:26:58.495 - INFO  [nio-8899-exec-1] c.b.a.ControllerAspect         : ---------------END REQUEST-------------
+2019-05-07 16:36:16.964 - INFO  [           main] o.s.b.StartupInfoLogger        : Starting JiangNanApplication on DESKTOP-9CK0F4O with PID 4328 (D:\ideaProject\jiang_nan\target\classes started by Administrator in D:\ideaProject\jiang_nan)
+2019-05-07 16:36:16.972 - INFO  [           main] o.s.b.SpringApplication        : The following profiles are active: test
+2019-05-07 16:36:18.792 - INFO  [           main] o.s.b.w.e.t.TomcatWebServer    : Tomcat initialized with port(s): 8899 (http)
+2019-05-07 16:36:18.809 - INFO  [           main] o.a.j.l.DirectJDKLog           : Initializing ProtocolHandler ["http-nio-8899"]
+2019-05-07 16:36:18.818 - INFO  [           main] o.a.j.l.DirectJDKLog           : Starting service [Tomcat]
+2019-05-07 16:36:18.818 - INFO  [           main] o.a.j.l.DirectJDKLog           : Starting Servlet Engine: Apache Tomcat/9.0.13
+2019-05-07 16:36:18.832 - INFO  [           main] o.a.j.l.DirectJDKLog           : An older version [1.2.16] of the APR based Apache Tomcat Native library is installed, while Tomcat recommends a minimum version of [1.2.18]
+2019-05-07 16:36:18.833 - INFO  [           main] o.a.j.l.DirectJDKLog           : Loaded APR based Apache Tomcat Native library [1.2.16] using APR version [1.6.3].
+2019-05-07 16:36:18.833 - INFO  [           main] o.a.j.l.DirectJDKLog           : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+2019-05-07 16:36:18.833 - INFO  [           main] o.a.j.l.DirectJDKLog           : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2019-05-07 16:36:19.871 - INFO  [           main] o.a.j.l.DirectJDKLog           : OpenSSL successfully initialized [OpenSSL 1.0.2m  2 Nov 2017]
+2019-05-07 16:36:20.017 - INFO  [           main] o.a.j.l.DirectJDKLog           : Initializing Spring embedded WebApplicationContext
+2019-05-07 16:36:20.017 - INFO  [           main] letWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2990 ms
+2019-05-07 16:36:20.067 - INFO  [           main] .b.w.s.DynamicRegistrationBean : Filter CorsFilter was not registered (possibly already registered?)
+2019-05-07 16:36:20.271 - INFO  [           main] c.z.h.HikariDataSource         : HikariPool-1 - Starting...
+2019-05-07 16:36:20.855 - INFO  [           main] c.z.h.HikariDataSource         : HikariPool-1 - Start completed.
+2019-05-07 16:36:21.839 - INFO  [           main] c.ExecutorConfigurationSupport : Initializing ExecutorService 'taskScheduler'
+2019-05-07 16:36:21.922 - INFO  [           main] o.a.j.l.DirectJDKLog           : Starting ProtocolHandler ["http-nio-8899"]
+2019-05-07 16:36:21.929 - INFO  [           main] o.a.j.l.DirectJDKLog           : Using a shared selector for servlet write/read
+2019-05-07 16:36:21.943 - INFO  [           main] o.s.b.w.e.t.TomcatWebServer    : Tomcat started on port(s): 8899 (http) with context path '/jiang_nan'
+2019-05-07 16:36:21.946 - INFO  [           main] o.s.b.StartupInfoLogger        : Started JiangNanApplication in 6.138 seconds (JVM running for 7.478)
+2019-05-07 16:36:32.680 - INFO  [nio-8899-exec-1] o.a.j.l.DirectJDKLog           : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-05-07 16:36:32.680 - INFO  [nio-8899-exec-1] o.s.w.s.FrameworkServlet       : Initializing Servlet 'dispatcherServlet'
+2019-05-07 16:36:32.689 - INFO  [nio-8899-exec-1] o.s.w.s.FrameworkServlet       : Completed initialization in 9 ms
+2019-05-07 16:36:32.755 - INFO  [nio-8899-exec-1] c.b.a.ControllerAspect         : ---------------BEGIN REQUEST-------------
+2019-05-07 16:36:32.756 - INFO  [nio-8899-exec-1] c.b.a.ControllerAspect         : REQUEST URL : http://localhost:8899/jiang_nan/excel/testVerify
+2019-05-07 16:36:32.756 - INFO  [nio-8899-exec-1] c.b.a.ControllerAspect         : HTTP_METHOD : POST
+2019-05-07 16:36:32.758 - INFO  [nio-8899-exec-1] c.b.a.ControllerAspect         : IP : 0:0:0:0:0:0:0:1
+2019-05-07 16:36:32.760 - INFO  [nio-8899-exec-1] c.b.a.ControllerAspect         : CLASS_METHOD : com.bing.controller.ExcelController.testVerify
+2019-05-07 16:36:32.766 - INFO  [nio-8899-exec-1] c.b.a.ControllerAspect         : REQUEST PARAMS : [{"params":{"testId":"1"}}]
+2019-05-07 16:36:32.774 - INFO  [nio-8899-exec-1] c.b.a.ControllerAspect         : RESPONSE TIME : 19 ms!
+2019-05-07 16:36:32.774 - INFO  [nio-8899-exec-1] c.b.a.ControllerAspect         : ---------------END REQUEST-------------
+2019-05-07 16:36:58.357 - INFO  [           main] o.s.b.StartupInfoLogger        : Starting JiangNanApplication on DESKTOP-9CK0F4O with PID 8416 (D:\ideaProject\jiang_nan\target\classes started by Administrator in D:\ideaProject\jiang_nan)
+2019-05-07 16:36:58.361 - INFO  [           main] o.s.b.SpringApplication        : The following profiles are active: test
+2019-05-07 16:36:59.588 - INFO  [           main] o.s.b.w.e.t.TomcatWebServer    : Tomcat initialized with port(s): 8899 (http)
+2019-05-07 16:36:59.601 - INFO  [           main] o.a.j.l.DirectJDKLog           : Initializing ProtocolHandler ["http-nio-8899"]
+2019-05-07 16:36:59.612 - INFO  [           main] o.a.j.l.DirectJDKLog           : Starting service [Tomcat]
+2019-05-07 16:36:59.613 - INFO  [           main] o.a.j.l.DirectJDKLog           : Starting Servlet Engine: Apache Tomcat/9.0.13
+2019-05-07 16:36:59.620 - INFO  [           main] o.a.j.l.DirectJDKLog           : An older version [1.2.16] of the APR based Apache Tomcat Native library is installed, while Tomcat recommends a minimum version of [1.2.18]
+2019-05-07 16:36:59.621 - INFO  [           main] o.a.j.l.DirectJDKLog           : Loaded APR based Apache Tomcat Native library [1.2.16] using APR version [1.6.3].
+2019-05-07 16:36:59.621 - INFO  [           main] o.a.j.l.DirectJDKLog           : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+2019-05-07 16:36:59.621 - INFO  [           main] o.a.j.l.DirectJDKLog           : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2019-05-07 16:37:00.661 - INFO  [           main] o.a.j.l.DirectJDKLog           : OpenSSL successfully initialized [OpenSSL 1.0.2m  2 Nov 2017]
+2019-05-07 16:37:00.800 - INFO  [           main] o.a.j.l.DirectJDKLog           : Initializing Spring embedded WebApplicationContext
+2019-05-07 16:37:00.801 - INFO  [           main] letWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2402 ms
+2019-05-07 16:37:00.858 - INFO  [           main] .b.w.s.DynamicRegistrationBean : Filter CorsFilter was not registered (possibly already registered?)
+2019-05-07 16:37:01.067 - INFO  [           main] c.z.h.HikariDataSource         : HikariPool-1 - Starting...
+2019-05-07 16:37:01.386 - INFO  [           main] c.z.h.HikariDataSource         : HikariPool-1 - Start completed.
+2019-05-07 16:37:02.291 - INFO  [           main] c.ExecutorConfigurationSupport : Initializing ExecutorService 'taskScheduler'
+2019-05-07 16:37:02.351 - INFO  [           main] o.a.j.l.DirectJDKLog           : Starting ProtocolHandler ["http-nio-8899"]
+2019-05-07 16:37:02.358 - INFO  [           main] o.a.j.l.DirectJDKLog           : Using a shared selector for servlet write/read
+2019-05-07 16:37:02.374 - INFO  [           main] o.s.b.w.e.t.TomcatWebServer    : Tomcat started on port(s): 8899 (http) with context path '/jiang_nan'
+2019-05-07 16:37:02.377 - INFO  [           main] o.s.b.StartupInfoLogger        : Started JiangNanApplication in 4.887 seconds (JVM running for 6.059)
+2019-05-07 16:37:19.882 - INFO  [nio-8899-exec-1] o.a.j.l.DirectJDKLog           : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-05-07 16:37:19.883 - INFO  [nio-8899-exec-1] o.s.w.s.FrameworkServlet       : Initializing Servlet 'dispatcherServlet'
+2019-05-07 16:37:19.891 - INFO  [nio-8899-exec-1] o.s.w.s.FrameworkServlet       : Completed initialization in 8 ms
+2019-05-07 16:37:19.933 - INFO  [nio-8899-exec-1] c.b.a.ControllerAspect         : ---------------BEGIN REQUEST-------------
+2019-05-07 16:37:19.934 - INFO  [nio-8899-exec-1] c.b.a.ControllerAspect         : REQUEST URL : http://localhost:8899/jiang_nan/excel/testVerify
+2019-05-07 16:37:19.935 - INFO  [nio-8899-exec-1] c.b.a.ControllerAspect         : HTTP_METHOD : POST
+2019-05-07 16:37:19.936 - INFO  [nio-8899-exec-1] c.b.a.ControllerAspect         : IP : 0:0:0:0:0:0:0:1
+2019-05-07 16:37:19.937 - INFO  [nio-8899-exec-1] c.b.a.ControllerAspect         : CLASS_METHOD : com.bing.controller.ExcelController.testVerify
+2019-05-07 16:37:19.942 - INFO  [nio-8899-exec-1] c.b.a.ControllerAspect         : REQUEST PARAMS : [{"params":{"testId":"1"}}]
+2019-05-07 16:37:19.948 - INFO  [nio-8899-exec-1] c.b.a.ControllerAspect         : RESPONSE TIME : 15 ms!
+2019-05-07 16:37:19.948 - INFO  [nio-8899-exec-1] c.b.a.ControllerAspect         : ---------------END REQUEST-------------
+2019-05-07 16:38:38.299 - INFO  [           main] o.s.b.StartupInfoLogger        : Starting JiangNanApplication on DESKTOP-9CK0F4O with PID 17076 (D:\ideaProject\jiang_nan\target\classes started by Administrator in D:\ideaProject\jiang_nan)
+2019-05-07 16:38:38.304 - INFO  [           main] o.s.b.SpringApplication        : The following profiles are active: test
+2019-05-07 16:38:39.542 - INFO  [           main] o.s.b.w.e.t.TomcatWebServer    : Tomcat initialized with port(s): 8899 (http)
+2019-05-07 16:38:39.555 - INFO  [           main] o.a.j.l.DirectJDKLog           : Initializing ProtocolHandler ["http-nio-8899"]
+2019-05-07 16:38:39.562 - INFO  [           main] o.a.j.l.DirectJDKLog           : Starting service [Tomcat]
+2019-05-07 16:38:39.563 - INFO  [           main] o.a.j.l.DirectJDKLog           : Starting Servlet Engine: Apache Tomcat/9.0.13
+2019-05-07 16:38:39.569 - INFO  [           main] o.a.j.l.DirectJDKLog           : An older version [1.2.16] of the APR based Apache Tomcat Native library is installed, while Tomcat recommends a minimum version of [1.2.18]
+2019-05-07 16:38:39.569 - INFO  [           main] o.a.j.l.DirectJDKLog           : Loaded APR based Apache Tomcat Native library [1.2.16] using APR version [1.6.3].
+2019-05-07 16:38:39.569 - INFO  [           main] o.a.j.l.DirectJDKLog           : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+2019-05-07 16:38:39.570 - INFO  [           main] o.a.j.l.DirectJDKLog           : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2019-05-07 16:38:40.622 - INFO  [           main] o.a.j.l.DirectJDKLog           : OpenSSL successfully initialized [OpenSSL 1.0.2m  2 Nov 2017]
+2019-05-07 16:38:40.736 - INFO  [           main] o.a.j.l.DirectJDKLog           : Initializing Spring embedded WebApplicationContext
+2019-05-07 16:38:40.736 - INFO  [           main] letWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2392 ms
+2019-05-07 16:38:40.782 - INFO  [           main] .b.w.s.DynamicRegistrationBean : Filter CorsFilter was not registered (possibly already registered?)
+2019-05-07 16:38:40.950 - INFO  [           main] c.z.h.HikariDataSource         : HikariPool-1 - Starting...
+2019-05-07 16:38:42.241 - INFO  [           main] c.z.h.HikariDataSource         : HikariPool-1 - Start completed.
+2019-05-07 16:38:43.094 - INFO  [           main] c.ExecutorConfigurationSupport : Initializing ExecutorService 'taskScheduler'
+2019-05-07 16:38:43.149 - INFO  [           main] o.a.j.l.DirectJDKLog           : Starting ProtocolHandler ["http-nio-8899"]
+2019-05-07 16:38:43.158 - INFO  [           main] o.a.j.l.DirectJDKLog           : Using a shared selector for servlet write/read
+2019-05-07 16:38:43.170 - INFO  [           main] o.s.b.w.e.t.TomcatWebServer    : Tomcat started on port(s): 8899 (http) with context path '/jiang_nan'
+2019-05-07 16:38:43.173 - INFO  [           main] o.s.b.StartupInfoLogger        : Started JiangNanApplication in 5.734 seconds (JVM running for 6.978)
+2019-05-07 16:38:45.177 - INFO  [nio-8899-exec-1] o.a.j.l.DirectJDKLog           : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-05-07 16:38:45.177 - INFO  [nio-8899-exec-1] o.s.w.s.FrameworkServlet       : Initializing Servlet 'dispatcherServlet'
+2019-05-07 16:38:45.184 - INFO  [nio-8899-exec-1] o.s.w.s.FrameworkServlet       : Completed initialization in 7 ms
+2019-05-07 16:38:45.229 - INFO  [nio-8899-exec-1] c.b.a.ControllerAspect         : ---------------BEGIN REQUEST-------------
+2019-05-07 16:38:45.230 - INFO  [nio-8899-exec-1] c.b.a.ControllerAspect         : REQUEST URL : http://localhost:8899/jiang_nan/excel/testVerify
+2019-05-07 16:38:45.230 - INFO  [nio-8899-exec-1] c.b.a.ControllerAspect         : HTTP_METHOD : POST
+2019-05-07 16:38:45.232 - INFO  [nio-8899-exec-1] c.b.a.ControllerAspect         : IP : 0:0:0:0:0:0:0:1
+2019-05-07 16:38:45.233 - INFO  [nio-8899-exec-1] c.b.a.ControllerAspect         : CLASS_METHOD : com.bing.controller.ExcelController.testVerify
+2019-05-07 16:38:45.239 - INFO  [nio-8899-exec-1] c.b.a.ControllerAspect         : REQUEST PARAMS : [{"params":{"testId":"1"}}]
+2019-05-07 16:38:45.243 - INFO  [nio-8899-exec-1] c.b.a.ControllerAspect         : RESPONSE TIME : 14 ms!
+2019-05-07 16:38:45.243 - INFO  [nio-8899-exec-1] c.b.a.ControllerAspect         : ---------------END REQUEST-------------
+2019-05-07 16:48:17.543 - INFO  [           main] o.s.b.StartupInfoLogger        : Starting JiangNanApplication on DESKTOP-9CK0F4O with PID 2420 (D:\ideaProject\jiang_nan\target\classes started by Administrator in D:\ideaProject\jiang_nan)
+2019-05-07 16:48:17.548 - INFO  [           main] o.s.b.SpringApplication        : The following profiles are active: test
+2019-05-07 16:48:18.566 - INFO  [           main] o.s.b.w.e.t.TomcatWebServer    : Tomcat initialized with port(s): 8899 (http)
+2019-05-07 16:48:18.577 - INFO  [           main] o.a.j.l.DirectJDKLog           : Initializing ProtocolHandler ["http-nio-8899"]
+2019-05-07 16:48:18.586 - INFO  [           main] o.a.j.l.DirectJDKLog           : Starting service [Tomcat]
+2019-05-07 16:48:18.586 - INFO  [           main] o.a.j.l.DirectJDKLog           : Starting Servlet Engine: Apache Tomcat/9.0.13
+2019-05-07 16:48:18.593 - INFO  [           main] o.a.j.l.DirectJDKLog           : An older version [1.2.16] of the APR based Apache Tomcat Native library is installed, while Tomcat recommends a minimum version of [1.2.18]
+2019-05-07 16:48:18.594 - INFO  [           main] o.a.j.l.DirectJDKLog           : Loaded APR based Apache Tomcat Native library [1.2.16] using APR version [1.6.3].
+2019-05-07 16:48:18.594 - INFO  [           main] o.a.j.l.DirectJDKLog           : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+2019-05-07 16:48:18.594 - INFO  [           main] o.a.j.l.DirectJDKLog           : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2019-05-07 16:48:19.647 - INFO  [           main] o.a.j.l.DirectJDKLog           : OpenSSL successfully initialized [OpenSSL 1.0.2m  2 Nov 2017]
+2019-05-07 16:48:19.744 - INFO  [           main] o.a.j.l.DirectJDKLog           : Initializing Spring embedded WebApplicationContext
+2019-05-07 16:48:19.744 - INFO  [           main] letWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2166 ms
+2019-05-07 16:48:19.776 - INFO  [           main] .b.w.s.DynamicRegistrationBean : Filter CorsFilter was not registered (possibly already registered?)
+2019-05-07 16:48:19.817 - WARN  [           main] c.s.AbstractApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'excelController': Unsatisfied dependency expressed through field 'productYisunFilterHyMapper'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'productYisunFilterHyMapper' defined in file [D:\ideaProject\jiang_nan\target\classes\com\bing\mapper\ProductYisunFilterHyMapper.class]: Invocation of init method failed; nested exception is java.lang.IllegalArgumentException: Property 'sqlSessionFactory' or 'sqlSessionTemplate' are required
+2019-05-07 16:48:19.818 - INFO  [           main] o.a.j.l.DirectJDKLog           : Stopping service [Tomcat]
+2019-05-07 16:48:19.829 - INFO  [           main] valuationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2019-05-07 16:48:51.687 - INFO  [           main] o.s.b.StartupInfoLogger        : Starting JiangNanApplication on DESKTOP-9CK0F4O with PID 13484 (D:\ideaProject\jiang_nan\target\classes started by Administrator in D:\ideaProject\jiang_nan)
+2019-05-07 16:48:51.691 - INFO  [           main] o.s.b.SpringApplication        : The following profiles are active: test
+2019-05-07 16:48:52.746 - INFO  [           main] o.s.b.w.e.t.TomcatWebServer    : Tomcat initialized with port(s): 8899 (http)
+2019-05-07 16:48:52.756 - INFO  [           main] o.a.j.l.DirectJDKLog           : Initializing ProtocolHandler ["http-nio-8899"]
+2019-05-07 16:48:52.763 - INFO  [           main] o.a.j.l.DirectJDKLog           : Starting service [Tomcat]
+2019-05-07 16:48:52.764 - INFO  [           main] o.a.j.l.DirectJDKLog           : Starting Servlet Engine: Apache Tomcat/9.0.13
+2019-05-07 16:48:52.769 - INFO  [           main] o.a.j.l.DirectJDKLog           : An older version [1.2.16] of the APR based Apache Tomcat Native library is installed, while Tomcat recommends a minimum version of [1.2.18]
+2019-05-07 16:48:52.769 - INFO  [           main] o.a.j.l.DirectJDKLog           : Loaded APR based Apache Tomcat Native library [1.2.16] using APR version [1.6.3].
+2019-05-07 16:48:52.769 - INFO  [           main] o.a.j.l.DirectJDKLog           : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+2019-05-07 16:48:52.769 - INFO  [           main] o.a.j.l.DirectJDKLog           : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2019-05-07 16:48:53.814 - INFO  [           main] o.a.j.l.DirectJDKLog           : OpenSSL successfully initialized [OpenSSL 1.0.2m  2 Nov 2017]
+2019-05-07 16:48:53.910 - INFO  [           main] o.a.j.l.DirectJDKLog           : Initializing Spring embedded WebApplicationContext
+2019-05-07 16:48:53.910 - INFO  [           main] letWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2185 ms
+2019-05-07 16:48:53.944 - INFO  [           main] .b.w.s.DynamicRegistrationBean : Filter CorsFilter was not registered (possibly already registered?)
+2019-05-07 16:48:53.997 - WARN  [           main] c.s.AbstractApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'testController': Unsatisfied dependency expressed through field 'testService'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'testService': Unsatisfied dependency expressed through field 'baseUserMapper'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'baseUserMapper' defined in file [D:\ideaProject\jiang_nan\target\classes\com\bing\mapper\BaseUserMapper.class]: Invocation of init method failed; nested exception is java.lang.IllegalArgumentException: Property 'sqlSessionFactory' or 'sqlSessionTemplate' are required
+2019-05-07 16:48:53.998 - INFO  [           main] o.a.j.l.DirectJDKLog           : Stopping service [Tomcat]
+2019-05-07 16:48:54.010 - INFO  [           main] valuationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2019-05-07 16:51:07.026 - INFO  [           main] o.s.b.StartupInfoLogger        : Starting JiangNanApplication on DESKTOP-9CK0F4O with PID 10776 (D:\ideaProject\jiang_nan\target\classes started by Administrator in D:\ideaProject\jiang_nan)
+2019-05-07 16:51:07.030 - INFO  [           main] o.s.b.SpringApplication        : The following profiles are active: test
+2019-05-07 16:51:08.015 - INFO  [           main] o.s.b.w.e.t.TomcatWebServer    : Tomcat initialized with port(s): 8899 (http)
+2019-05-07 16:51:08.026 - INFO  [           main] o.a.j.l.DirectJDKLog           : Initializing ProtocolHandler ["http-nio-8899"]
+2019-05-07 16:51:08.032 - INFO  [           main] o.a.j.l.DirectJDKLog           : Starting service [Tomcat]
+2019-05-07 16:51:08.033 - INFO  [           main] o.a.j.l.DirectJDKLog           : Starting Servlet Engine: Apache Tomcat/9.0.13
+2019-05-07 16:51:08.038 - INFO  [           main] o.a.j.l.DirectJDKLog           : An older version [1.2.16] of the APR based Apache Tomcat Native library is installed, while Tomcat recommends a minimum version of [1.2.18]
+2019-05-07 16:51:08.038 - INFO  [           main] o.a.j.l.DirectJDKLog           : Loaded APR based Apache Tomcat Native library [1.2.16] using APR version [1.6.3].
+2019-05-07 16:51:08.038 - INFO  [           main] o.a.j.l.DirectJDKLog           : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+2019-05-07 16:51:08.039 - INFO  [           main] o.a.j.l.DirectJDKLog           : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2019-05-07 16:51:09.084 - INFO  [           main] o.a.j.l.DirectJDKLog           : OpenSSL successfully initialized [OpenSSL 1.0.2m  2 Nov 2017]
+2019-05-07 16:51:09.179 - INFO  [           main] o.a.j.l.DirectJDKLog           : Initializing Spring embedded WebApplicationContext
+2019-05-07 16:51:09.179 - INFO  [           main] letWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2111 ms
+2019-05-07 16:51:09.219 - INFO  [           main] .b.w.s.DynamicRegistrationBean : Filter CorsFilter was not registered (possibly already registered?)
+2019-05-07 16:51:09.280 - WARN  [           main] c.s.AbstractApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'testController': Unsatisfied dependency expressed through field 'testService'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'testService': Unsatisfied dependency expressed through field 'baseUserMapper'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'baseUserMapper' defined in file [D:\ideaProject\jiang_nan\target\classes\com\bing\mapper\BaseUserMapper.class]: Invocation of init method failed; nested exception is java.lang.IllegalArgumentException: Property 'sqlSessionFactory' or 'sqlSessionTemplate' are required
+2019-05-07 16:51:09.281 - INFO  [           main] o.a.j.l.DirectJDKLog           : Stopping service [Tomcat]
+2019-05-07 16:51:09.296 - INFO  [           main] valuationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2019-05-07 16:51:57.360 - INFO  [           main] o.s.b.StartupInfoLogger        : Starting JiangNanApplication on DESKTOP-9CK0F4O with PID 16364 (D:\ideaProject\jiang_nan\target\classes started by Administrator in D:\ideaProject\jiang_nan)
+2019-05-07 16:51:57.364 - INFO  [           main] o.s.b.SpringApplication        : The following profiles are active: test
+2019-05-07 16:51:58.287 - INFO  [           main] o.s.b.w.e.t.TomcatWebServer    : Tomcat initialized with port(s): 8899 (http)
+2019-05-07 16:51:58.298 - INFO  [           main] o.a.j.l.DirectJDKLog           : Initializing ProtocolHandler ["http-nio-8899"]
+2019-05-07 16:51:58.305 - INFO  [           main] o.a.j.l.DirectJDKLog           : Starting service [Tomcat]
+2019-05-07 16:51:58.305 - INFO  [           main] o.a.j.l.DirectJDKLog           : Starting Servlet Engine: Apache Tomcat/9.0.13
+2019-05-07 16:51:58.311 - INFO  [           main] o.a.j.l.DirectJDKLog           : An older version [1.2.16] of the APR based Apache Tomcat Native library is installed, while Tomcat recommends a minimum version of [1.2.18]
+2019-05-07 16:51:58.311 - INFO  [           main] o.a.j.l.DirectJDKLog           : Loaded APR based Apache Tomcat Native library [1.2.16] using APR version [1.6.3].
+2019-05-07 16:51:58.311 - INFO  [           main] o.a.j.l.DirectJDKLog           : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+2019-05-07 16:51:58.311 - INFO  [           main] o.a.j.l.DirectJDKLog           : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2019-05-07 16:51:59.365 - INFO  [           main] o.a.j.l.DirectJDKLog           : OpenSSL successfully initialized [OpenSSL 1.0.2m  2 Nov 2017]
+2019-05-07 16:51:59.457 - INFO  [           main] o.a.j.l.DirectJDKLog           : Initializing Spring embedded WebApplicationContext
+2019-05-07 16:51:59.457 - INFO  [           main] letWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2066 ms
+2019-05-07 16:51:59.491 - INFO  [           main] .b.w.s.DynamicRegistrationBean : Filter CorsFilter was not registered (possibly already registered?)
+2019-05-07 16:51:59.553 - WARN  [           main] c.s.AbstractApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'testService': Unsatisfied dependency expressed through field 'baseUserMapper'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'baseUserMapper' defined in file [D:\ideaProject\jiang_nan\target\classes\com\bing\mapper\BaseUserMapper.class]: Invocation of init method failed; nested exception is java.lang.IllegalArgumentException: Property 'sqlSessionFactory' or 'sqlSessionTemplate' are required
+2019-05-07 16:51:59.554 - INFO  [           main] o.a.j.l.DirectJDKLog           : Stopping service [Tomcat]
+2019-05-07 16:51:59.566 - INFO  [           main] valuationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2019-05-07 17:01:53.685 - INFO  [           main] o.s.b.StartupInfoLogger        : Starting JiangNanApplication on DESKTOP-9CK0F4O with PID 16940 (D:\ideaProject\jiang_nan\target\classes started by Administrator in D:\ideaProject\jiang_nan)
+2019-05-07 17:01:53.690 - INFO  [           main] o.s.b.SpringApplication        : The following profiles are active: test
+2019-05-07 17:01:54.884 - INFO  [           main] o.s.b.w.e.t.TomcatWebServer    : Tomcat initialized with port(s): 8899 (http)
+2019-05-07 17:01:54.893 - INFO  [           main] o.a.j.l.DirectJDKLog           : Initializing ProtocolHandler ["http-nio-8899"]
+2019-05-07 17:01:54.900 - INFO  [           main] o.a.j.l.DirectJDKLog           : Starting service [Tomcat]
+2019-05-07 17:01:54.901 - INFO  [           main] o.a.j.l.DirectJDKLog           : Starting Servlet Engine: Apache Tomcat/9.0.13
+2019-05-07 17:01:54.907 - INFO  [           main] o.a.j.l.DirectJDKLog           : An older version [1.2.16] of the APR based Apache Tomcat Native library is installed, while Tomcat recommends a minimum version of [1.2.18]
+2019-05-07 17:01:54.907 - INFO  [           main] o.a.j.l.DirectJDKLog           : Loaded APR based Apache Tomcat Native library [1.2.16] using APR version [1.6.3].
+2019-05-07 17:01:54.907 - INFO  [           main] o.a.j.l.DirectJDKLog           : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+2019-05-07 17:01:54.908 - INFO  [           main] o.a.j.l.DirectJDKLog           : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2019-05-07 17:01:55.956 - INFO  [           main] o.a.j.l.DirectJDKLog           : OpenSSL successfully initialized [OpenSSL 1.0.2m  2 Nov 2017]
+2019-05-07 17:01:56.052 - INFO  [           main] o.a.j.l.DirectJDKLog           : Initializing Spring embedded WebApplicationContext
+2019-05-07 17:01:56.052 - INFO  [           main] letWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2333 ms
+2019-05-07 17:01:56.086 - INFO  [           main] .b.w.s.DynamicRegistrationBean : Filter CorsFilter was not registered (possibly already registered?)
+2019-05-07 17:01:56.232 - INFO  [           main] c.z.h.HikariDataSource         : HikariPool-1 - Starting...
+2019-05-07 17:01:56.663 - INFO  [           main] c.z.h.HikariDataSource         : HikariPool-1 - Start completed.
+2019-05-07 17:01:57.267 - INFO  [           main] c.ExecutorConfigurationSupport : Initializing ExecutorService 'taskScheduler'
+2019-05-07 17:01:57.311 - INFO  [           main] o.a.j.l.DirectJDKLog           : Starting ProtocolHandler ["http-nio-8899"]
+2019-05-07 17:01:57.318 - INFO  [           main] o.a.j.l.DirectJDKLog           : Using a shared selector for servlet write/read
+2019-05-07 17:01:57.330 - INFO  [           main] o.s.b.w.e.t.TomcatWebServer    : Tomcat started on port(s): 8899 (http) with context path '/jiang_nan'
+2019-05-07 17:01:57.332 - INFO  [           main] o.s.b.StartupInfoLogger        : Started JiangNanApplication in 4.435 seconds (JVM running for 5.398)
