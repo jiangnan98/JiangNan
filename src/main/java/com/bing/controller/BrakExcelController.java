@@ -347,20 +347,21 @@ public class BrakExcelController {
             pans.forEach(p-> {
                 //品牌
                 productYisunBrak.setSpecName(p.getName());
-                try {
+                try{
                     p.getFactory().forEach(f -> {
                         //添加产品
                         productYisunBrak.setProductId(null);
                         productYisunBrak.setFactoryNum(f);
                         productYisunBrak.setHeight(ma.get("总高").toString());
-                        productYisunBrak.setDiscType(ma.get("直径").toString());
+                        productYisunBrak.setDiameter(ma.get("直径").toString());
                         productYisunBrak.setMinimumThickness(ma.get("最小厚度").toString());
                         productYisunBrak.setPitchDiameter(ma.get("节圆直径").toString());
                         productYisunBrak.setDiscThickness(ma.get("制动盘厚度").toString());
                         productYisunBrak.setCenterHoleDiameter(ma.get("中心孔直径").toString());
                         productYisunBrakMapper.insert(productYisunBrak);
                     });
-                } catch (Exception e) {
+                }catch (Exception e){
+
                 }
             });
         }
@@ -380,19 +381,43 @@ public class BrakExcelController {
         //获取车型数据
         for (int j = 1; j < rowLens; j++) {
             String factoryNum = ExcelUtil.getCellValue(sheet.getRow(j).getCell(0)).replaceAll("-D","");
-            Integer price = Integer.valueOf(MoneyUtils.moneyYuanToFen(ExcelUtil.getCellValue(sheet.getRow(j).getCell(2))));
-            Integer ourcPrice = Integer.valueOf(MoneyUtils.moneyYuanToFen(ExcelUtil.getCellValue(sheet.getRow(j).getCell(1))));
             ProductYisunBrak productYisunBrak = new ProductYisunBrak();
             productYisunBrak.setFactoryNum(factoryNum);
-            productYisunBrak.setPrice(price);
-            productYisunBrak.setOurcPrice(ourcPrice);
-
-            productYisunBrakMapper.updateById(productYisunBrak);
+            productYisunBrak.setApplyModel(ExcelUtil.getCellValue(sheet.getRow(j).getCell(4)));
+            productYisunBrak.setSpecName("菲罗多");
+            productYisunBrakMapper.editBrakFLDPrice(productYisunBrak);
         }
-
     }
 
-
+    @PostMapping("TRWPanPrice")
+    public void TRWPanPrice() throws Exception {
+        File file = new File("D:\\aaa\\data\\TRW盘报价.xlsx");
+        InputStream is = new FileInputStream(file);
+        Workbook wb = new XSSFWorkbook(is);
+        Sheet sheet = wb.getSheetAt(0);
+        is.close();
+        //获取行数
+        int rowLens = sheet.getLastRowNum();
+        log.info("行数：" + rowLens);
+        //获取车型数据
+        for (int i = 1; i < rowLens; i++) {
+            ProductYisunBrak  p = new ProductYisunBrak();
+            String a = ExcelUtil.getCellValue(sheet.getRow(i).getCell(4));
+            String b = ExcelUtil.getCellValue(sheet.getRow(i).getCell(3));
+            if(StringUtils.isBlank(a) || StringUtils.isBlank(b)){
+                continue;
+            }
+            Integer price = Integer.valueOf(MoneyUtils.moneyYuanToFen(a));
+            Integer ourcPrice = Integer.valueOf(MoneyUtils.moneyYuanToFen(b));
+            p.setPrice(price);
+            p.setOurcPrice(ourcPrice);
+            p.setUnit(ExcelUtil.getCellValue(sheet.getRow(i).getCell(1)));
+            p.setFactoryNum(ExcelUtil.getCellValue(sheet.getRow(i).getCell(2)));
+            p.setAnotherName(ExcelUtil.getCellValue(sheet.getRow(i).getCell(0)));
+            p.setSpecName("TRW");
+            productYisunBrakMapper.editPanTrwPrice(p);
+        }
+    }
 
     public String fileUpload(String pic) throws Exception{
         String p = "";

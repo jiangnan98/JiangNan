@@ -1,5 +1,6 @@
 package com.bing.model;
 
+import com.baomidou.mybatisplus.annotations.TableField;
 import com.baomidou.mybatisplus.activerecord.Model;
 import com.baomidou.mybatisplus.annotations.TableName;
 import java.io.Serializable;
@@ -14,51 +15,31 @@ import lombok.experimental.Accessors;
  * </p>
  *
  * @author Jiang
- * @since 2019-04-23
+ * @since 2019-05-07
  */
 @Data
 @Accessors(chain = true)
-@TableName("t_model_filter_hy")
-public class ModelFilterHy extends Model<ModelFilterHy> {
+@TableName("t_model_radiator_carhome")
+public class ModelRadiatorCarhome extends Model<ModelRadiatorCarhome> {
 
     private static final long serialVersionUID = 1L;
 
-    private String id;
+    private Integer id;
 
-    /**
-     * 首写字母
-     */
     private String letter;
 
-    /**
-     * 品牌
-     */
     private String brand;
 
-    /**
-     * 车型
-     */
+    private String factory;
+
     private String model;
 
-    /**
-     * 车系
-     */
-    private String category;
+    private String engineInfo;
 
-    /**
-     * 年款
-     */
-    private String series;
+    @TableField("model_detail")
+    private String modelDetail;
 
-    /**
-     * 排量
-     */
-    private String swept;
-
-    /**
-     * 发动机
-     */
-    private String motor;
+    private String trans;
 
 
     @Override

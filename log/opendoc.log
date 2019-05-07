@@ -1,36 +1,36 @@
-2019-05-05 13:51:36.586 - INFO  [           main] o.s.b.StartupInfoLogger        : Starting JiangNanApplication on DESKTOP-9CK0F4O with PID 11420 (D:\ideaProject\jiang_nan\target\classes started by Administrator in D:\ideaProject\jiang_nan)
-2019-05-05 13:51:36.748 - INFO  [           main] o.s.b.SpringApplication        : The following profiles are active: test
-2019-05-05 13:51:37.895 - INFO  [           main] o.s.b.w.e.t.TomcatWebServer    : Tomcat initialized with port(s): 8899 (http)
-2019-05-05 13:51:37.906 - INFO  [           main] o.a.j.l.DirectJDKLog           : Initializing ProtocolHandler ["http-nio-8899"]
-2019-05-05 13:51:37.913 - INFO  [           main] o.a.j.l.DirectJDKLog           : Starting service [Tomcat]
-2019-05-05 13:51:37.913 - INFO  [           main] o.a.j.l.DirectJDKLog           : Starting Servlet engine: [Apache Tomcat/9.0.17]
-2019-05-05 13:51:37.919 - INFO  [           main] o.a.j.l.DirectJDKLog           : An older version [1.2.16] of the APR based Apache Tomcat Native library is installed, while Tomcat recommends a minimum version of [1.2.21]
-2019-05-05 13:51:37.920 - INFO  [           main] o.a.j.l.DirectJDKLog           : Loaded APR based Apache Tomcat Native library [1.2.16] using APR version [1.6.3].
-2019-05-05 13:51:37.920 - INFO  [           main] o.a.j.l.DirectJDKLog           : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
-2019-05-05 13:51:37.920 - INFO  [           main] o.a.j.l.DirectJDKLog           : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
-2019-05-05 13:51:38.972 - INFO  [           main] o.a.j.l.DirectJDKLog           : OpenSSL successfully initialized [OpenSSL 1.0.2m  2 Nov 2017]
-2019-05-05 13:51:39.073 - INFO  [           main] o.a.j.l.DirectJDKLog           : Initializing Spring embedded WebApplicationContext
-2019-05-05 13:51:39.073 - INFO  [           main] letWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2293 ms
-2019-05-05 13:51:39.227 - INFO  [           main] c.z.h.HikariDataSource         : HikariPool-1 - Starting...
-2019-05-05 13:51:39.674 - INFO  [           main] c.z.h.HikariDataSource         : HikariPool-1 - Start completed.
-2019-05-05 13:51:40.664 - INFO  [           main] c.ExecutorConfigurationSupport : Initializing ExecutorService 'taskScheduler'
-2019-05-05 13:51:40.708 - INFO  [           main] o.a.j.l.DirectJDKLog           : Starting ProtocolHandler ["http-nio-8899"]
-2019-05-05 13:51:40.726 - INFO  [           main] o.s.b.w.e.t.TomcatWebServer    : Tomcat started on port(s): 8899 (http) with context path '/jiang_nan'
-2019-05-05 13:51:40.728 - INFO  [           main] o.s.b.StartupInfoLogger        : Started JiangNanApplication in 4.867 seconds (JVM running for 5.989)
-2019-05-05 13:52:09.517 - INFO  [nio-8899-exec-1] o.a.j.l.DirectJDKLog           : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2019-05-05 13:52:09.517 - INFO  [nio-8899-exec-1] o.s.w.s.FrameworkServlet       : Initializing Servlet 'dispatcherServlet'
-2019-05-05 13:52:09.527 - INFO  [nio-8899-exec-1] o.s.w.s.FrameworkServlet       : Completed initialization in 8 ms
-2019-05-05 13:52:09.545 - INFO  [nio-8899-exec-1] c.b.a.ControllerAspect         : ---------------BEGIN REQUEST-------------
-2019-05-05 13:52:09.545 - INFO  [nio-8899-exec-1] c.b.a.ControllerAspect         : REQUEST URL : http://localhost:8899/jiang_nan/BrakExcel/FLDPrice
-2019-05-05 13:52:09.545 - INFO  [nio-8899-exec-1] c.b.a.ControllerAspect         : HTTP_METHOD : POST
-2019-05-05 13:52:09.546 - INFO  [nio-8899-exec-1] c.b.a.ControllerAspect         : IP : 0:0:0:0:0:0:0:1
-2019-05-05 13:52:09.547 - INFO  [nio-8899-exec-1] c.b.a.ControllerAspect         : CLASS_METHOD : com.bing.controller.BrakExcelController.FLDPrice
-2019-05-05 13:52:09.549 - INFO  [nio-8899-exec-1] c.b.a.ControllerAspect         : REQUEST PARAMS : []
-2019-05-05 13:55:02.096 - INFO  [nio-8899-exec-4] c.b.a.ControllerAspect         : ---------------BEGIN REQUEST-------------
-2019-05-05 13:55:02.097 - INFO  [nio-8899-exec-4] c.b.a.ControllerAspect         : REQUEST URL : http://localhost:8899/jiang_nan/BrakExcel/FLDPrice
-2019-05-05 13:55:02.097 - INFO  [nio-8899-exec-4] c.b.a.ControllerAspect         : HTTP_METHOD : POST
-2019-05-05 13:55:02.097 - INFO  [nio-8899-exec-4] c.b.a.ControllerAspect         : IP : 0:0:0:0:0:0:0:1
-2019-05-05 13:55:02.097 - INFO  [nio-8899-exec-4] c.b.a.ControllerAspect         : CLASS_METHOD : com.bing.controller.BrakExcelController.FLDPrice
-2019-05-05 13:55:02.098 - INFO  [nio-8899-exec-4] c.b.a.ControllerAspect         : REQUEST PARAMS : []
-2019-05-05 13:55:12.837 - INFO  [nio-8899-exec-4] c.b.a.ControllerAspect         : RESPONSE TIME : 10741 ms!
-2019-05-05 13:55:12.837 - INFO  [nio-8899-exec-4] c.b.a.ControllerAspect         : ---------------END REQUEST-------------
+2019-05-07 10:11:28.775 - INFO  [           main] o.s.b.StartupInfoLogger        : Starting JiangNanApplication on DESKTOP-9CK0F4O with PID 2636 (D:\ideaProject\jiang_nan\target\classes started by Administrator in D:\ideaProject\jiang_nan)
+2019-05-07 10:11:28.966 - INFO  [           main] o.s.b.SpringApplication        : The following profiles are active: test
+2019-05-07 10:11:30.012 - INFO  [           main] o.s.b.w.e.t.TomcatWebServer    : Tomcat initialized with port(s): 8899 (http)
+2019-05-07 10:11:30.023 - INFO  [           main] o.a.j.l.DirectJDKLog           : Initializing ProtocolHandler ["http-nio-8899"]
+2019-05-07 10:11:30.031 - INFO  [           main] o.a.j.l.DirectJDKLog           : Starting service [Tomcat]
+2019-05-07 10:11:30.031 - INFO  [           main] o.a.j.l.DirectJDKLog           : Starting Servlet engine: [Apache Tomcat/9.0.17]
+2019-05-07 10:11:30.036 - INFO  [           main] o.a.j.l.DirectJDKLog           : An older version [1.2.16] of the APR based Apache Tomcat Native library is installed, while Tomcat recommends a minimum version of [1.2.21]
+2019-05-07 10:11:30.037 - INFO  [           main] o.a.j.l.DirectJDKLog           : Loaded APR based Apache Tomcat Native library [1.2.16] using APR version [1.6.3].
+2019-05-07 10:11:30.037 - INFO  [           main] o.a.j.l.DirectJDKLog           : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+2019-05-07 10:11:30.037 - INFO  [           main] o.a.j.l.DirectJDKLog           : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2019-05-07 10:11:31.082 - INFO  [           main] o.a.j.l.DirectJDKLog           : OpenSSL successfully initialized [OpenSSL 1.0.2m  2 Nov 2017]
+2019-05-07 10:11:31.173 - INFO  [           main] o.a.j.l.DirectJDKLog           : Initializing Spring embedded WebApplicationContext
+2019-05-07 10:11:31.173 - INFO  [           main] letWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2174 ms
+2019-05-07 10:11:31.310 - INFO  [           main] c.z.h.HikariDataSource         : HikariPool-1 - Starting...
+2019-05-07 10:11:31.770 - INFO  [           main] c.z.h.HikariDataSource         : HikariPool-1 - Start completed.
+2019-05-07 10:11:32.786 - INFO  [           main] c.ExecutorConfigurationSupport : Initializing ExecutorService 'taskScheduler'
+2019-05-07 10:11:32.829 - INFO  [           main] o.a.j.l.DirectJDKLog           : Starting ProtocolHandler ["http-nio-8899"]
+2019-05-07 10:11:32.847 - INFO  [           main] o.s.b.w.e.t.TomcatWebServer    : Tomcat started on port(s): 8899 (http) with context path '/jiang_nan'
+2019-05-07 10:11:32.849 - INFO  [           main] o.s.b.StartupInfoLogger        : Started JiangNanApplication in 4.822 seconds (JVM running for 5.846)
+2019-05-07 10:12:19.530 - INFO  [nio-8899-exec-1] o.a.j.l.DirectJDKLog           : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-05-07 10:12:19.531 - INFO  [nio-8899-exec-1] o.s.w.s.FrameworkServlet       : Initializing Servlet 'dispatcherServlet'
+2019-05-07 10:12:19.538 - INFO  [nio-8899-exec-1] o.s.w.s.FrameworkServlet       : Completed initialization in 7 ms
+2019-05-07 10:12:19.553 - INFO  [nio-8899-exec-1] c.b.a.ControllerAspect         : ---------------BEGIN REQUEST-------------
+2019-05-07 10:12:19.554 - INFO  [nio-8899-exec-1] c.b.a.ControllerAspect         : REQUEST URL : http://localhost:8899/jiang_nan/radiator/JiaShiData
+2019-05-07 10:12:19.554 - INFO  [nio-8899-exec-1] c.b.a.ControllerAspect         : HTTP_METHOD : POST
+2019-05-07 10:12:19.555 - INFO  [nio-8899-exec-1] c.b.a.ControllerAspect         : IP : 0:0:0:0:0:0:0:1
+2019-05-07 10:12:19.556 - INFO  [nio-8899-exec-1] c.b.a.ControllerAspect         : CLASS_METHOD : com.bing.controller.RadiatorController.JiaShiData
+2019-05-07 10:12:19.558 - INFO  [nio-8899-exec-1] c.b.a.ControllerAspect         : REQUEST PARAMS : []
+2019-05-07 10:14:11.143 - INFO  [nio-8899-exec-4] c.b.a.ControllerAspect         : ---------------BEGIN REQUEST-------------
+2019-05-07 10:14:11.143 - INFO  [nio-8899-exec-4] c.b.a.ControllerAspect         : REQUEST URL : http://localhost:8899/jiang_nan/radiator/JiaShiData
+2019-05-07 10:14:11.143 - INFO  [nio-8899-exec-4] c.b.a.ControllerAspect         : HTTP_METHOD : POST
+2019-05-07 10:14:11.144 - INFO  [nio-8899-exec-4] c.b.a.ControllerAspect         : IP : 0:0:0:0:0:0:0:1
+2019-05-07 10:14:11.144 - INFO  [nio-8899-exec-4] c.b.a.ControllerAspect         : CLASS_METHOD : com.bing.controller.RadiatorController.JiaShiData
+2019-05-07 10:14:11.144 - INFO  [nio-8899-exec-4] c.b.a.ControllerAspect         : REQUEST PARAMS : []
+2019-05-07 10:22:07.022 - INFO  [nio-8899-exec-4] c.b.a.ControllerAspect         : RESPONSE TIME : 475879 ms!
+2019-05-07 10:22:07.022 - INFO  [nio-8899-exec-4] c.b.a.ControllerAspect         : ---------------END REQUEST-------------

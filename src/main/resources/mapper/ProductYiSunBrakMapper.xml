@@ -60,4 +60,15 @@
             apply_model = #{applyModel}
         where factory_num = #{factoryNum} and spec_name = #{specName}
     </update>
+
+    <update id="editBrakFLDPrice" parameterType="com.bing.model.ProductYisunBrak">
+        update t_product_yisun_brak
+        set  apply_model = #{applyModel}
+        where factory_num = #{factoryNum} and spec_name = #{specName}
+    </update>
+    <update id="editPanTrwPrice" parameterType="com.bing.model.ProductYisunBrak">
+        update t_product_yisun_brak
+        set  price = #{price},ourc_price = #{ourcPrice},unit = #{unit},another_name = #{anotherName}
+        where factory_num = #{factoryNum} and spec_name = #{specName} and classify_id in ('502','504','509')
+    </update>
 </mapper>

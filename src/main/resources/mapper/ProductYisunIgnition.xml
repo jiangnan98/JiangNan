@@ -7,4 +7,11 @@
        ourc_price = #{ourcPrice}
        where factory_num = #{factoryNum}
    </update>
+
+    <update id="editRemaker" parameterType="com.bing.model.ProductYisunIgnition">
+       update t_product_yisun_ignition set
+       quality = #{quality},
+       remark = #{remark}
+       where factory_num = #{factoryNum}
+   </update>
 </mapper>

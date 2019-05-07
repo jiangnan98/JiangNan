@@ -18,6 +18,7 @@ import org.apache.http.entity.ContentType;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.util.StringUtil;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.slf4j.Logger;
 import org.springframework.beans.BeanUtils;
@@ -32,6 +33,7 @@ import org.springframework.web.multipart.MultipartFile;
 import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.text.MessageFormat;
 import java.util.List;
 import java.util.Map;
 
@@ -232,9 +234,10 @@ public class ExcelController {
             modelFilterHy.setMotor(ExcelUtil.getCellValue(sheet.getRow(i).getCell(6)));
             EntityWrapper<ModelFilterHy> wrapper = new EntityWrapper<>();
             wrapper.setEntity(modelFilterHy);
+            String model = "";
             List<ModelFilterHy> modelFilterHIES = modelFilterHyMapper.selectList(wrapper);
             if(modelFilterHIES != null && modelFilterHIES.size()!= 0){
-                productYisunFilterHy.setModel(modelFilterHIES.get(0).getId());
+               model = modelFilterHIES.get(0).getId();
             }
             //分类
             String auName = ExcelUtil.getCellValue(sheet.getRow(i).getCell(7)).replaceAll("(0)","").replaceAll("(1)","").replaceAll("(2)","").replaceAll("\\(|\\)","").replaceAll("（）","");
@@ -249,7 +252,20 @@ public class ExcelController {
             productYisunFilterHy.setAnotherName(auName);
             //工厂号
             productYisunFilterHy.setFactoryNum(ExcelUtil.getCellValue(sheet.getRow(i).getCell(8)));
+            if(StringUtils.isBlank(productYisunFilterHy.getFactoryNum())){
+                continue;
+            }
             System.out.println("工厂号："+ExcelUtil.getCellValue(sheet.getRow(i).getCell(8)));
+            ProductYisunFilterHy productYisunFilterHy1 = productYisunFilterHyMapper.selectOne(productYisunFilterHy);
+            if(productYisunFilterHy1!=null){
+               StringBuffer stringBuffer = new StringBuffer(productYisunFilterHy1.getModel()==null?"":productYisunFilterHy1.getModel());
+               stringBuffer.append(",").append(model);
+               productYisunFilterHy1.setModel(stringBuffer.toString());
+               productYisunFilterHyMapper.updateById(productYisunFilterHy1);
+               continue;
+            }else{
+                productYisunFilterHy.setModel(model);
+            }
             //图片
             String p = "";
             String pic = ExcelUtil.getCellValue(sheet.getRow(i).getCell(9));
@@ -261,6 +277,75 @@ public class ExcelController {
             //图片地址
             productYisunFilterHy.setCarousel(p);
             productYisunFilterHyMapper.insert(productYisunFilterHy);
+        }
+    }
+    @PostMapping("manPrice")
+    public void manPrice() throws Exception{
+        String path = "D:\\\\aaa\\\\data\\\\曼牌汽修（零售）.xlsx";
+        File file = new File(path);
+        boolean isExcel2003 = path.toLowerCase().endsWith("xls")?true:false;
+        InputStream is = new FileInputStream(file);
+        Workbook wb;
+        if(isExcel2003){
+            wb = new HSSFWorkbook(is);
+        }else{
+            wb = new XSSFWorkbook(is);
+        }
+        Sheet sheet = wb.getSheetAt(0);
+        is.close();
+        //获取行数
+        int rowLens = sheet.getLastRowNum();
+        log.info("行数："+rowLens);
+        for(int i = 1;i<rowLens;i++) {
+            String factory = ExcelUtil.getCellValue(sheet.getRow(i).getCell(0)).replaceAll(" ","");
+            String anthorName = ExcelUtil.getCellValue(sheet.getRow(i).getCell(1));
+            String applyModel = ExcelUtil.getCellValue(sheet.getRow(i).getCell(2));
+            String price = ExcelUtil.getCellValue(sheet.getRow(i).getCell(4));
+            ProductYisunFilterHy productYisunFilterHy = new ProductYisunFilterHy();
+            productYisunFilterHy.setFactoryNum(factory);
+            productYisunFilterHy.setApplyModel(applyModel);
+            productYisunFilterHy.setAnotherName(anthorName);
+            productYisunFilterHy.setSpecName("曼牌");
+            if(StringUtils.isBlank(price) || StringUtils.isBlank(factory)){
+                continue;
+            }
+            productYisunFilterHy.setPrice(Integer.valueOf(MoneyUtils.moneyYuanToFen(price)));
+            productYisunFilterHyMapper.editPriceMan(productYisunFilterHy);
+        }
+    }
+
+    @PostMapping("manOurcPrice")
+    public void manOurcPrice() throws Exception{
+        String path = "D:\\\\aaa\\\\data\\\\曼牌汽配（批发）.xlsx";
+        File file = new File(path);
+        boolean isExcel2003 = path.toLowerCase().endsWith("xls")?true:false;
+        InputStream is = new FileInputStream(file);
+        Workbook wb;
+        if(isExcel2003){
+            wb = new HSSFWorkbook(is);
+        }else{
+            wb = new XSSFWorkbook(is);
+        }
+        Sheet sheet = wb.getSheetAt(0);
+        is.close();
+        //获取行数
+        int rowLens = sheet.getLastRowNum();
+        log.info("行数："+rowLens);
+        for(int i = 1;i<rowLens;i++) {
+            String factory = ExcelUtil.getCellValue(sheet.getRow(i).getCell(0)).replaceAll(" ","");
+            String anthorName = ExcelUtil.getCellValue(sheet.getRow(i).getCell(1));
+            String applyModel = ExcelUtil.getCellValue(sheet.getRow(i).getCell(2));
+            String price = ExcelUtil.getCellValue(sheet.getRow(i).getCell(4));
+            ProductYisunFilterHy productYisunFilterHy = new ProductYisunFilterHy();
+            productYisunFilterHy.setFactoryNum(factory);
+            productYisunFilterHy.setApplyModel(applyModel);
+            productYisunFilterHy.setAnotherName(anthorName);
+            productYisunFilterHy.setSpecName("曼牌");
+            if(StringUtils.isBlank(price) || StringUtils.isBlank(factory)){
+                continue;
+            }
+            productYisunFilterHy.setOurcPrice(Integer.valueOf(MoneyUtils.moneyYuanToFen(price)));
+            productYisunFilterHyMapper.editOurcPriceMan(productYisunFilterHy);
         }
     }
 
@@ -377,6 +462,35 @@ public class ExcelController {
 
         }
 
+    }
+
+
+    @PostMapping("ngkBh")
+    public void ngkBh() throws Exception {
+        String path = "D:\\\\aaa\\\\data\\\\NGK火花塞.xlsx";
+        File file = new File(path);
+        boolean isExcel2003 = path.toLowerCase().endsWith("xls") ? true : false;
+        InputStream is = new FileInputStream(file);
+        Workbook wb;
+        if (isExcel2003) {
+            wb = new HSSFWorkbook(is);
+        } else {
+            wb = new XSSFWorkbook(is);
+        }
+        Sheet sheet = wb.getSheetAt(1);
+        is.close();
+        //获取行数
+        int rowLens = sheet.getLastRowNum();
+        log.info("行数：" + rowLens);
+        for (int i = 0; i < rowLens; i++) {
+            ProductYisunIgnition productYisunIgnition = new ProductYisunIgnition();
+            productYisunIgnition.setFactoryNum(ExcelUtil.getCellValue(sheet.getRow(i).getCell(8)));
+            productYisunIgnition.setQuality(ExcelUtil.getCellValue(sheet.getRow(i).getCell(10)));
+            if(!ExcelUtil.getCellValue(sheet.getRow(i).getCell(9)).equals("none")){
+                productYisunIgnition.setRemark(ExcelUtil.getCellValue(sheet.getRow(i).getCell(9)));
+            }
+            productYisunIgnitionMapper.editRemaker(productYisunIgnition);
+        }
     }
 
     @PostMapping("ngkData")

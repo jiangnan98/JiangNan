@@ -4,14 +4,14 @@
 
 <update id="editPrice" parameterType="com.bing.model.ProductYisunFilterHy">
         update
-        t_product_yisun_filter
+        t_product_yisun_filter_copy2
         set  ourc_price = #{ourcPrice} ,price = #{price}
         where factory_num = #{factoryNum}
     </update>
 
     <update id="editOurcPriceMa" parameterType="com.bing.model.ProductYisunFilterHy">
         update
-        t_product_yisun_filter
+        t_product_yisun_filter_copy2
         set  ourc_price = #{ourcPrice}
         where factory_num = #{factoryNum}
     </update>
@@ -20,5 +20,21 @@
         t_product_yisun_filter
         set  price = #{price}
         where factory_num = #{factoryNum}
+    </update>
+    <update id="editPriceMan" parameterType="com.bing.model.ProductYisunFilterHy">
+        update
+        t_product_yisun_filter
+        set  price = #{price},
+        apply_model = #{applyModel},
+        another_name = #{anotherName}
+        where factory_num = #{factoryNum} and spec_name = #{specName}
+    </update>
+    <update id="editOurcPriceMan" parameterType="com.bing.model.ProductYisunFilterHy">
+        update
+        t_product_yisun_filter
+        set  ourc_price = #{ourcPrice},
+        apply_model = #{applyModel},
+        another_name = #{anotherName}
+        where factory_num = #{factoryNum} and spec_name = #{specName}
     </update>
 </mapper>

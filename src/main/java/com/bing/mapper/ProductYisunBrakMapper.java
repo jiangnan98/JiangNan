@@ -17,4 +17,8 @@ public interface ProductYisunBrakMapper extends BaseMapper<ProductYisunBrak> {
     int editModel(ProductYisunBrak productYisunBrak);
 
     int editBrak(ProductYisunBrak productYisunBrak);
+    int editBrakFLDPrice(ProductYisunBrak productYisunBrak);
+
+    int editPanTrwPrice(ProductYisunBrak productYisunBrak);
+
 }

@@ -21,7 +21,7 @@ import lombok.experimental.Accessors;
  */
 @Data
 @Accessors(chain = true)
-@TableName("t_product_yisun_brak_copy1")
+@TableName("t_product_yisun_brak_copy2")
 public class ProductYisunBrak extends Model<ProductYisunBrak> {
 
     private static final long serialVersionUID = 1L;

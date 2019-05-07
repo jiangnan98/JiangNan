@@ -1,14 +1,15 @@
 package com.bing.model;
 
-import com.baomidou.mybatisplus.activerecord.Model;
-import com.baomidou.mybatisplus.annotations.TableField;
+import java.util.Date;
 import com.baomidou.mybatisplus.annotations.TableId;
+import com.baomidou.mybatisplus.annotations.TableField;
+import com.baomidou.mybatisplus.activerecord.Model;
 import com.baomidou.mybatisplus.annotations.TableName;
+import java.io.Serializable;
+
+
 import lombok.Data;
 import lombok.experimental.Accessors;
-
-import java.io.Serializable;
-import java.util.Date;
 
 /**
  * <p>
@@ -16,12 +17,12 @@ import java.util.Date;
  * </p>
  *
  * @author Jiang
- * @since 2019-04-20
+ * @since 2019-05-07
  */
 @Data
 @Accessors(chain = true)
-@TableName("t_product_yisun_filter_copy2")
-public class    ProductYisunFilterHy extends Model<ProductYisunFilterHy> {
+@TableName("t_product_yisun_radiator")
+public class ProductYisunRadiator extends Model<ProductYisunRadiator> {
 
     private static final long serialVersionUID = 1L;
 
@@ -226,36 +227,6 @@ public class    ProductYisunFilterHy extends Model<ProductYisunFilterHy> {
      */
     @TableField("packing_fee")
     private Integer packingFee;
-
-    /**
-     * 规格：长
-     */
-    @TableField("A")
-    private String a;
-
-    /**
-     * 规格：宽
-     */
-    @TableField("B")
-    private String b;
-
-    /**
-     * 规格：高
-     */
-    @TableField("C")
-    private String c;
-
-    /**
-     * 规格：内径
-     */
-    @TableField("G")
-    private String g;
-
-    /**
-     * 规格：外径
-     */
-    @TableField("H")
-    private String h;
 
 
     @Override

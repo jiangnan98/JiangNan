@@ -13,4 +13,5 @@ import com.bing.model.ProductYisunIgnition;
  */
 public interface ProductYisunIgnitionMapper extends BaseMapper<ProductYisunIgnition> {
     int editPrice(ProductYisunIgnition productYisunIgnition);
+    int editRemaker(ProductYisunIgnition productYisunIgnition);
 }
