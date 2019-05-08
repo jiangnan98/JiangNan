@@ -1,4 +1,4 @@
-package com.bing.adapter;
+package com.bing.config;
 
 import com.bing.anno.Auth;
 import org.springframework.stereotype.Component;
