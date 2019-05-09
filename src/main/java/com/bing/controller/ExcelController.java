@@ -15,10 +15,12 @@ import com.bing.service.ExcelService;
 import com.bing.util.*;
 import org.apache.commons.lang.StringUtils;
 import org.apache.http.entity.ContentType;
-import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+import org.apache.poi.hssf.usermodel.*;
+import org.apache.poi.ss.usermodel.PictureData;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.util.StringUtil;
+import org.apache.poi.xssf.usermodel.XSSFPicture;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.slf4j.Logger;
 import org.springframework.beans.BeanUtils;
@@ -125,6 +127,52 @@ public class ExcelController {
             productYisunFilterHyMapper.insertAllColumn(productYisunFilterHy);
         }
     }
+
+    @PostMapping("hstModel")
+    public void hstModel() throws Exception {
+        String path = "D:\\\\aaa\\\\data\\\\hgst-man-ma.xls";
+        File file = new File(path);
+        boolean isExcel2003 = path.toLowerCase().endsWith("xls") ? true : false;
+        InputStream is = new FileInputStream(file);
+        Workbook wb;
+        if (isExcel2003) {
+            wb = new HSSFWorkbook(is);
+        } else {
+            wb = new XSSFWorkbook(is);
+        }
+        Sheet sheet = wb.getSheetAt(0);
+        is.close();
+        //获取行数
+        int rowLens = sheet.getLastRowNum();
+        log.info("行数：" + rowLens);
+        //获取车型数据
+        for (int i = 2; i < rowLens; i++) {
+            ProductYisunFilterHy p = new ProductYisunFilterHy();
+            try{
+                String model = ExcelUtil.getCellValue(sheet.getRow(i).getCell(8));
+
+                if(StringUtils.isBlank(model)){
+                    continue;
+                }
+                p.setApplyModel(model);
+                //汉格斯特
+                p.setSpecName("汉格斯特");
+                p.setFactoryNum(ExcelUtil.getCellValue(sheet.getRow(i).getCell(3)).replaceAll(" ",""));
+                productYisunFilterHyMapper.editModel(p);
+                //马勒
+                p.setSpecName("马勒");
+                p.setFactoryNum(ExcelUtil.getCellValue(sheet.getRow(i).getCell(12)).replaceAll(" ",""));
+                productYisunFilterHyMapper.editModel(p);
+                //曼牌
+                p.setSpecName("曼牌");
+                p.setFactoryNum(ExcelUtil.getCellValue(sheet.getRow(i).getCell(11)).replaceAll(" ",""));
+                productYisunFilterHyMapper.editModel(p);
+            }catch (Exception e){
+                continue;
+            }
+        }
+    }
+
 
 
     @PostMapping("manFilter")
@@ -349,6 +397,68 @@ public class ExcelController {
         }
     }
 
+    @PostMapping("hyJPrice")
+    public void hyJPrice() throws Exception{
+        String path = "D:\\\\aaa\\\\data\\\\海业机滤报价 (1).xls";
+        File file = new File(path);
+        boolean isExcel2003 = path.toLowerCase().endsWith("xls")?true:false;
+        InputStream is = new FileInputStream(file);
+        Workbook wb;
+        if(isExcel2003){
+            wb = new HSSFWorkbook(is);
+        }else{
+            wb = new XSSFWorkbook(is);
+        }
+        Sheet sheet = wb.getSheetAt(0);
+        is.close();
+        //获取行数
+        int rowLens = sheet.getLastRowNum();
+        log.info("行数："+rowLens);
+        for(int i = 1;i<rowLens;i++) {
+            ProductYisunFilterHy productYisunFilterHy = new ProductYisunFilterHy();
+            productYisunFilterHy.setOurcPrice(Integer.valueOf(MoneyUtils.moneyYuanToFen(ExcelUtil.getCellValue(sheet.getRow(i).getCell(6)))));
+            productYisunFilterHy.setPrice(Integer.valueOf(MoneyUtils.moneyYuanToFen(ExcelUtil.getCellValue(sheet.getRow(i).getCell(7)))));
+            productYisunFilterHy.setFactoryNum(ExcelUtil.getCellValue(sheet.getRow(i).getCell(0)));
+            productYisunFilterHy.setApplyModel(ExcelUtil.getCellValue(sheet.getRow(i).getCell(2)));
+            productYisunFilterHy.setSpecName("海业");
+            productYisunFilterHyMapper.editHYPirce(productYisunFilterHy);
+        }
+    }
+
+
+    @PostMapping("hyKPrice")
+    public void hyKPrice() throws Exception{
+        String path = "D:\\\\aaa\\\\data\\\\海业机滤报价 (2).xls";
+        File file = new File(path);
+        boolean isExcel2003 = path.toLowerCase().endsWith("xls")?true:false;
+        InputStream is = new FileInputStream(file);
+        Workbook wb;
+        if(isExcel2003){
+            wb = new HSSFWorkbook(is);
+        }else{
+            wb = new XSSFWorkbook(is);
+        }
+        Sheet sheet = wb.getSheetAt(0);
+        is.close();
+        //获取行数
+        int rowLens = sheet.getLastRowNum();
+        log.info("行数："+rowLens);
+        for(int i = 1;i<rowLens;i++) {
+            ProductYisunFilterHy productYisunFilterHy = new ProductYisunFilterHy();
+            String ourcPrice = ExcelUtil.getCellValue(sheet.getRow(i).getCell(5));
+            System.out.println(ourcPrice);
+            String price = ExcelUtil.getCellValue(sheet.getRow(i).getCell(6));
+            System.out.println(price);
+            Integer ourc = Integer.valueOf(MoneyUtils.moneyYuanToFen(ourcPrice));
+            productYisunFilterHy.setOurcPrice(ourc);
+            Integer pp = Integer.valueOf(MoneyUtils.moneyYuanToFen(price));
+            productYisunFilterHy.setPrice(pp);
+            productYisunFilterHy.setFactoryNum(ExcelUtil.getCellValue(sheet.getRow(i).getCell(0)));
+            productYisunFilterHy.setApplyModel(ExcelUtil.getCellValue(sheet.getRow(i).getCell(2)));
+            productYisunFilterHy.setSpecName("海业");
+            productYisunFilterHyMapper.editHYPirce(productYisunFilterHy);
+        }
+    }
 
     @PostMapping("hyPrice")
     public void hyPrice() throws Exception{
@@ -375,6 +485,7 @@ public class ExcelController {
                 continue;
             }
             //获取价格
+            productYisunFilterHy.setApplyModel(ExcelUtil.getCellValue(sheet.getRow(i).getCell(2)));
             productYisunFilterHy.setOurcPrice(Integer.valueOf(MoneyUtils.moneyYuanToFen(ExcelUtil.getCellValue(sheet.getRow(i).getCell(5)))));
             productYisunFilterHy.setPrice(Integer.valueOf(MoneyUtils.moneyYuanToFen(ExcelUtil.getCellValue(sheet.getRow(i).getCell(6)))));
             //更新数据
