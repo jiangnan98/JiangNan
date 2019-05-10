@@ -15,7 +15,7 @@ import com.baomidou.mybatisplus.generator.engine.FreemarkerTemplateEngine;
 public class CodeGeneratorUtil {
 
 	public static void main(String[] args) {
-		String tableName="t_company";
+		String tableName="t_role_backstage";
 		// 代码生成器
 		AutoGenerator mpg = new AutoGenerator();
 		// 全局配置
