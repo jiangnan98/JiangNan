@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bing.mapper.ProductYisunCellCopy1Mapper">
+
+   <update id="editModel" parameterType="com.bing.model.ProductYisunCellCopy1">
+       update t_product_yisun_cell_copy1
+       set model = #{model}
+       where factory_num = #{factoryNum}
+   </update>
+
+</mapper>

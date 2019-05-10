@@ -1,30 +1,29 @@
-2019-05-08 17:32:53.108 - INFO  [           main] o.s.b.StartupInfoLogger        : Starting JiangNanApplication on DESKTOP-9CK0F4O with PID 16688 (D:\ideaProject\jiang_nan\target\classes started by Administrator in D:\ideaProject\jiang_nan)
-2019-05-08 17:32:53.267 - INFO  [           main] o.s.b.SpringApplication        : The following profiles are active: test
-2019-05-08 17:32:54.425 - INFO  [           main] o.s.b.w.e.t.TomcatWebServer    : Tomcat initialized with port(s): 8899 (http)
-2019-05-08 17:32:54.439 - INFO  [           main] o.a.j.l.DirectJDKLog           : Initializing ProtocolHandler ["http-nio-8899"]
-2019-05-08 17:32:54.447 - INFO  [           main] o.a.j.l.DirectJDKLog           : Starting service [Tomcat]
-2019-05-08 17:32:54.448 - INFO  [           main] o.a.j.l.DirectJDKLog           : Starting Servlet engine: [Apache Tomcat/9.0.17]
-2019-05-08 17:32:54.455 - INFO  [           main] o.a.j.l.DirectJDKLog           : An older version [1.2.16] of the APR based Apache Tomcat Native library is installed, while Tomcat recommends a minimum version of [1.2.21]
-2019-05-08 17:32:54.455 - INFO  [           main] o.a.j.l.DirectJDKLog           : Loaded APR based Apache Tomcat Native library [1.2.16] using APR version [1.6.3].
-2019-05-08 17:32:54.455 - INFO  [           main] o.a.j.l.DirectJDKLog           : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
-2019-05-08 17:32:54.455 - INFO  [           main] o.a.j.l.DirectJDKLog           : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
-2019-05-08 17:32:55.502 - INFO  [           main] o.a.j.l.DirectJDKLog           : OpenSSL successfully initialized [OpenSSL 1.0.2m  2 Nov 2017]
-2019-05-08 17:32:55.597 - INFO  [           main] o.a.j.l.DirectJDKLog           : Initializing Spring embedded WebApplicationContext
-2019-05-08 17:32:55.597 - INFO  [           main] letWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2301 ms
-2019-05-08 17:32:55.760 - INFO  [           main] c.z.h.HikariDataSource         : HikariPool-1 - Starting...
-2019-05-08 17:32:56.200 - INFO  [           main] c.z.h.HikariDataSource         : HikariPool-1 - Start completed.
-2019-05-08 17:32:57.359 - INFO  [           main] c.ExecutorConfigurationSupport : Initializing ExecutorService 'taskScheduler'
-2019-05-08 17:32:57.407 - INFO  [           main] o.a.j.l.DirectJDKLog           : Starting ProtocolHandler ["http-nio-8899"]
-2019-05-08 17:32:57.427 - INFO  [           main] o.s.b.w.e.t.TomcatWebServer    : Tomcat started on port(s): 8899 (http) with context path '/jiang_nan'
-2019-05-08 17:32:57.431 - INFO  [           main] o.s.b.StartupInfoLogger        : Started JiangNanApplication in 5.229 seconds (JVM running for 6.461)
-2019-05-08 17:33:01.133 - INFO  [nio-8899-exec-1] o.a.j.l.DirectJDKLog           : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2019-05-08 17:33:01.134 - INFO  [nio-8899-exec-1] o.s.w.s.FrameworkServlet       : Initializing Servlet 'dispatcherServlet'
-2019-05-08 17:33:01.141 - INFO  [nio-8899-exec-1] o.s.w.s.FrameworkServlet       : Completed initialization in 7 ms
-2019-05-08 17:33:01.159 - INFO  [nio-8899-exec-1] c.b.a.ControllerAspect         : ---------------BEGIN REQUEST-------------
-2019-05-08 17:33:01.160 - INFO  [nio-8899-exec-1] c.b.a.ControllerAspect         : REQUEST URL : http://localhost:8899/jiang_nan/ign/dianhuoPrice
-2019-05-08 17:33:01.160 - INFO  [nio-8899-exec-1] c.b.a.ControllerAspect         : HTTP_METHOD : POST
-2019-05-08 17:33:01.161 - INFO  [nio-8899-exec-1] c.b.a.ControllerAspect         : IP : 0:0:0:0:0:0:0:1
-2019-05-08 17:33:01.163 - INFO  [nio-8899-exec-1] c.b.a.ControllerAspect         : CLASS_METHOD : com.bing.controller.IgnController.dianhuoPrice
-2019-05-08 17:33:01.164 - INFO  [nio-8899-exec-1] c.b.a.ControllerAspect         : REQUEST PARAMS : []
-2019-05-08 17:33:10.947 - INFO  [nio-8899-exec-1] c.b.a.ControllerAspect         : RESPONSE TIME : 9788 ms!
-2019-05-08 17:33:10.947 - INFO  [nio-8899-exec-1] c.b.a.ControllerAspect         : ---------------END REQUEST-------------
+2019-05-10 14:03:02.621 - INFO  [           main] o.s.b.StartupInfoLogger        : Starting JiangNanApplication on DESKTOP-9CK0F4O with PID 16592 (D:\ideaProject\jiang_nan\target\classes started by Administrator in D:\ideaProject\jiang_nan)
+2019-05-10 14:03:02.794 - INFO  [           main] o.s.b.SpringApplication        : The following profiles are active: test
+2019-05-10 14:03:04.079 - INFO  [           main] o.s.b.w.e.t.TomcatWebServer    : Tomcat initialized with port(s): 8899 (http)
+2019-05-10 14:03:04.091 - INFO  [           main] o.a.j.l.DirectJDKLog           : Initializing ProtocolHandler ["http-nio-8899"]
+2019-05-10 14:03:04.099 - INFO  [           main] o.a.j.l.DirectJDKLog           : Starting service [Tomcat]
+2019-05-10 14:03:04.100 - INFO  [           main] o.a.j.l.DirectJDKLog           : Starting Servlet engine: [Apache Tomcat/9.0.17]
+2019-05-10 14:03:04.106 - INFO  [           main] o.a.j.l.DirectJDKLog           : An older version [1.2.16] of the APR based Apache Tomcat Native library is installed, while Tomcat recommends a minimum version of [1.2.21]
+2019-05-10 14:03:04.106 - INFO  [           main] o.a.j.l.DirectJDKLog           : Loaded APR based Apache Tomcat Native library [1.2.16] using APR version [1.6.3].
+2019-05-10 14:03:04.107 - INFO  [           main] o.a.j.l.DirectJDKLog           : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+2019-05-10 14:03:04.107 - INFO  [           main] o.a.j.l.DirectJDKLog           : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2019-05-10 14:03:05.171 - INFO  [           main] o.a.j.l.DirectJDKLog           : OpenSSL successfully initialized [OpenSSL 1.0.2m  2 Nov 2017]
+2019-05-10 14:03:05.280 - INFO  [           main] o.a.j.l.DirectJDKLog           : Initializing Spring embedded WebApplicationContext
+2019-05-10 14:03:05.280 - INFO  [           main] letWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2449 ms
+2019-05-10 14:03:05.462 - INFO  [           main] c.z.h.HikariDataSource         : HikariPool-1 - Starting...
+2019-05-10 14:03:05.919 - INFO  [           main] c.z.h.HikariDataSource         : HikariPool-1 - Start completed.
+2019-05-10 14:03:07.374 - INFO  [           main] c.ExecutorConfigurationSupport : Initializing ExecutorService 'taskScheduler'
+2019-05-10 14:03:07.428 - INFO  [           main] o.a.j.l.DirectJDKLog           : Starting ProtocolHandler ["http-nio-8899"]
+2019-05-10 14:03:07.450 - INFO  [           main] o.s.b.w.e.t.TomcatWebServer    : Tomcat started on port(s): 8899 (http) with context path '/jiang_nan'
+2019-05-10 14:03:07.453 - INFO  [           main] o.s.b.StartupInfoLogger        : Started JiangNanApplication in 5.602 seconds (JVM running for 7.09)
+2019-05-10 14:03:14.681 - INFO  [nio-8899-exec-3] o.a.j.l.DirectJDKLog           : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-05-10 14:03:14.681 - INFO  [nio-8899-exec-3] o.s.w.s.FrameworkServlet       : Initializing Servlet 'dispatcherServlet'
+2019-05-10 14:03:14.690 - INFO  [nio-8899-exec-3] o.s.w.s.FrameworkServlet       : Completed initialization in 9 ms
+2019-05-10 14:03:14.711 - INFO  [nio-8899-exec-3] c.b.a.ControllerAspect         : ---------------BEGIN REQUEST-------------
+2019-05-10 14:03:14.711 - INFO  [nio-8899-exec-3] c.b.a.ControllerAspect         : REQUEST URL : http://localhost:8899/jiang_nan/Cell/cellData
+2019-05-10 14:03:14.712 - INFO  [nio-8899-exec-3] c.b.a.ControllerAspect         : HTTP_METHOD : POST
+2019-05-10 14:03:14.713 - INFO  [nio-8899-exec-3] c.b.a.ControllerAspect         : IP : 0:0:0:0:0:0:0:1
+2019-05-10 14:03:14.715 - INFO  [nio-8899-exec-3] c.b.a.ControllerAspect         : CLASS_METHOD : com.bing.controller.CellController.testVerify
+2019-05-10 14:03:14.717 - INFO  [nio-8899-exec-3] c.b.a.ControllerAspect         : REQUEST PARAMS : []
+2019-05-10 14:05:03.371 - WARN  [l-1 housekeeper] c.z.h.p.HikariPool$HouseKeeper : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=49s850ms50µs400ns).
