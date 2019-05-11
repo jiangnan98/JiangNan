@@ -22,7 +22,7 @@ public class AaAdapter implements HandlerInterceptor {
     @Override
     public boolean preHandle(HttpServletRequest request,
                              HttpServletResponse response, Object handler) throws Exception {
-        boolean result = false;
+        boolean result = true;
         if (handler instanceof HandlerMethod) {
             HandlerMethod method = (HandlerMethod) handler;
             Auth auth = method.getMethod().getAnnotation(Auth.class);

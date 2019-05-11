@@ -17,4 +17,6 @@ public class TestResVo implements Serializable {
     private static final long serialVersionUID = -3922816859689622096L;
     
     private String testName;
+
+    private Integer aa;
 }

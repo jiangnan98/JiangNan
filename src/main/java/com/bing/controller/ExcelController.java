@@ -33,16 +33,15 @@ import java.io.InputStream;
 public class ExcelController {
     Logger log = LogUtils.getBussinessLogger();
 
-    @Auth
     @PostMapping("testVerify")
     public ResponseResult<TestResVo> testVerify(@RequestBody RequestParam<TestReqVo> testReqVo) throws Exception{
         TestReqVo vo = testReqVo.getParams();
         if(!VerifyUtil.verifyParams(vo)){
             return ResponseResult.failNotice(LizardSystemCode.PARAMS_ERROR.msg());
         }
-        System.out.println("1");
         TestResVo testResVo = new TestResVo();
-        testResVo.setTestName(vo.getTestName());
+        testResVo.setTestName(null);
+        testResVo.setAa(22);
         return ResponseResult.success(testResVo);
     }
 
