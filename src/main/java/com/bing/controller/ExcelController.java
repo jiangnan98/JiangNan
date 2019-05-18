@@ -1,6 +1,7 @@
 package com.bing.controller;
 
 import com.bing.anno.Auth;
+import com.bing.constants.RedisKey;
 import com.bing.mapper.ProductYisunFilterHyMapper;
 import com.bing.middleware.AliOssUploadServer;
 import com.bing.pack.LizardSystemCode;
@@ -20,6 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
+import java.text.MessageFormat;
 
 /**
  * Created by IntelliJ IDEA.
@@ -30,7 +32,7 @@ import java.io.InputStream;
  **/
 @RestController
 @RequestMapping("/excel/")
-public class ExcelController {
+public class ExcelController extends BaseController {
     Logger log = LogUtils.getBussinessLogger();
 
     @PostMapping("testVerify")
@@ -43,6 +45,15 @@ public class ExcelController {
         testResVo.setTestName(null);
         testResVo.setAa(22);
         return ResponseResult.success(testResVo);
+    }
+
+
+    @PostMapping("testLock")
+    public ResponseResult<String> testLock() throws Exception{
+        String token = super.getToken();
+        String lockKey = MessageFormat.format(RedisKey.RED_ENVELOPES,token);
+
+        return ResponseResult.success();
     }
 
 
