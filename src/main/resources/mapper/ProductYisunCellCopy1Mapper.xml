@@ -5,7 +5,7 @@
    <update id="editModel" parameterType="com.bing.model.ProductYisunCellCopy1">
        update t_product_yisun_cell_copy1
        set model = #{model}
-       where factory_num = #{factoryNum}
+       where product_id = #{productId}
    </update>
 
 </mapper>

@@ -50,7 +50,7 @@ public class CellController {
 
     @PostMapping("cellData")
     public void testVerify() throws Exception{
-        File file = new File("D:\\aaa\\data\\图片\\蓄电池.xlsx");
+        File file = new File("D:\\aaa\\data\\图片\\蓄电池2.xlsx");
         InputStream is = new FileInputStream(file);
         Workbook wb = new XSSFWorkbook(is);
         Sheet sheet = wb.getSheetAt(0);
@@ -59,6 +59,7 @@ public class CellController {
         int rowLens = sheet.getLastRowNum();
         log.info("行数："+rowLens);
         for(int i = 1;i<rowLens;i++){
+            System.out.println("i:"+i);
             String model = ExcelUtil.getCellValue(sheet.getRow(i).getCell(1));
             String applyModel = ExcelUtil.getCellValue(sheet.getRow(i).getCell(2)).replaceAll("\uD83D\uDC4D","");
             String specNmae = applyModel.substring(0,applyModel.indexOf("/"));
@@ -81,8 +82,7 @@ public class CellController {
             ProductYisunCellCopy1 ps = productYisunCellCopy1Mapper.selectOne(productYisunCellCopy1);
             if(ps != null){
                 stringBuffer.append(ps.getModel()).append(",");
-                stringBuffer.append(stringBuffer.toString()).append(",");
-                productYisunCellCopy1.setModel(stringBuffer.toString());
+                ps.setModel(stringBuffer.toString().replace(",,",","));
                 productYisunCellCopy1Mapper.editModel(ps);
                 continue;
             }
@@ -113,6 +113,7 @@ public class CellController {
             productYisunCellCopy1.setDis(dis);
             productYisunCellCopy1.setSpecName(specNmae);
             productYisunCellCopy1Mapper.insert(productYisunCellCopy1);
+
         }
     }
 
