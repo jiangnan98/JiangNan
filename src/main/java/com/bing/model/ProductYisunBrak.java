@@ -70,9 +70,6 @@ public class ProductYisunBrak extends Model<ProductYisunBrak> {
     @TableField("pac_spec")
     private String pacSpec;
 
-    @TableField("disc_type")
-    private String discType;
-
     @TableField("height")
     private String height;
 

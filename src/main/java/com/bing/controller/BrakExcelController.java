@@ -1,15 +1,14 @@
 package com.bing.controller;
 
 import com.alibaba.fastjson.JSON;
+import com.baomidou.mybatisplus.activerecord.Model;
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.bing.mapper.ModelBrakShengdiMapper;
 import com.bing.mapper.ProductTypeMapper;
 import com.bing.mapper.ProductYisunBrakMapper;
+import com.bing.mapper.ShengdiModelMapper;
 import com.bing.middleware.AliOssUploadServer;
-import com.bing.model.ModelBrakMofine;
-import com.bing.model.ModelBrakShengdi;
-import com.bing.model.ProductType;
-import com.bing.model.ProductYisunBrak;
+import com.bing.model.*;
 import com.bing.req.vo.Pan;
 import com.bing.util.ExcelUtil;
 import com.bing.util.LogUtils;
@@ -36,6 +35,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 /**
  * Created by IntelliJ IDEA.
@@ -56,6 +56,8 @@ public class BrakExcelController {
     ProductYisunBrakMapper productYisunBrakMapper;
     @Autowired
     ModelBrakShengdiMapper modelBrakShengdiMapper;
+    @Autowired
+    ShengdiModelMapper shengdiModelMapper;
 
     @PostMapping("moFineData")
     public void findList() throws Exception{
@@ -282,6 +284,61 @@ public class BrakExcelController {
         }
     }
 
+    @PostMapping("ShengDiData")
+    public void ShengDiData() throws Exception {
+        File file = new File("D:\\aaa\\data\\胜地刹车盘.xlsx");
+        InputStream is = new FileInputStream(file);
+        Workbook wb = new XSSFWorkbook(is);
+        Sheet sheet = wb.getSheetAt(7);
+        is.close();
+        //获取行数
+        int rowLens = sheet.getLastRowNum();
+        log.info("行数：" + rowLens);
+        //获取车型数据
+        for (int i = 0; i < rowLens; i++) {
+            ProductYisunBrak productYisunBrak = new ProductYisunBrak();
+            productYisunBrak.setFactoryNum(ExcelUtil.getCellValue(sheet.getRow(i).getCell(1)));
+            ProductYisunBrak isProductYisunBrak = productYisunBrakMapper.selectOne(productYisunBrak);
+            EntityWrapper wrapper = new EntityWrapper();
+            wrapper.eq("product",ExcelUtil.getCellValue(sheet.getRow(i).getCell(0)));
+            List<ShengdiModel> a = shengdiModelMapper.selectList(wrapper);
+            List<String> offerPks = a.stream().map(enquiry -> {
+                return enquiry.getModel();
+            }).collect(Collectors.toList());
+            wrapper = new EntityWrapper();
+            wrapper.in("motor_id",offerPks);
+            List<ModelBrakShengdi> s = modelBrakShengdiMapper.selectList(wrapper);
+            StringBuffer stringBuffer = new StringBuffer();
+            s.forEach(sd->{
+                stringBuffer.append(sd.getId()).append(",");
+            });
+            if(isProductYisunBrak!=null){
+                stringBuffer.append(isProductYisunBrak.getModel());
+                productYisunBrakMapper.updateById(isProductYisunBrak);
+                continue;
+            }
+            ModelBrakShengdi modelBrakShengdi = new ModelBrakShengdi();
+            modelBrakShengdi.setProduct(ExcelUtil.getCellValue(sheet.getRow(i).getCell(0)));
+            Map ma = (Map) JSON.parse(ExcelUtil.getCellValue(sheet.getRow(i).getCell(6)));
+            try{
+                //添加产品
+                productYisunBrak.setProductId(null);
+                productYisunBrak.setClassifyId("509");
+                productYisunBrak.setAnotherName( ExcelUtil.getCellValue(sheet.getRow(i).getCell(2)));
+                productYisunBrak.setModel(stringBuffer.toString());
+                productYisunBrak.setSpecName("胜地");
+                productYisunBrak.setHeight(ma.get("总高").toString());
+                productYisunBrak.setDiameter(ma.get("直径").toString());
+                productYisunBrak.setMinimumThickness(ma.get("最小厚度").toString());
+                productYisunBrak.setPitchDiameter(ma.get("节圆直径").toString());
+                productYisunBrak.setDiscThickness(ma.get("制动盘厚度").toString());
+                productYisunBrak.setCenterHoleDiameter(ma.get("中心孔直径").toString());
+                productYisunBrakMapper.insert(productYisunBrak);
+            }catch (Exception e){
+
+            }
+        }
+    }
 
     @PostMapping("SDData")
     public void SDData() throws Exception {
@@ -321,7 +378,6 @@ public class BrakExcelController {
                 }
                 pans.add(pan);
             });
-            productYisunBrak.setFactoryNum(ExcelUtil.getCellValue(sheet.getRow(j).getCell(1)));//工厂号
             //查询二级分类
             productYisunBrak.setClassifyId("509");
             productYisunBrak.setAnotherName( ExcelUtil.getCellValue(sheet.getRow(j).getCell(2)));
@@ -329,41 +385,61 @@ public class BrakExcelController {
             ModelBrakShengdi modelBrakShengdi = new ModelBrakShengdi();
             modelBrakShengdi.setProduct(ExcelUtil.getCellValue(sheet.getRow(j).getCell(0)));
             try{
+                StringBuffer stringBuffer = new StringBuffer();
                 if(StringUtils.isNotBlank(modelBrakShengdi.getProduct())){
                     EntityWrapper wrapper = new EntityWrapper();
+                    wrapper.eq("product",modelBrakShengdi.getProduct());
+                    List<ShengdiModel> a = shengdiModelMapper.selectList(wrapper);
+                    List<String> offerPks = a.stream().map(enquiry -> {
+                        return enquiry.getModel();
+                    }).collect(Collectors.toList());
+                    wrapper = new EntityWrapper();
+                    wrapper.in("motor_id",offerPks);
+                    List<ModelBrakShengdi> s = modelBrakShengdiMapper.selectList(wrapper);
                     wrapper.setEntity(modelBrakShengdi);
-                    List<ModelBrakShengdi> modelBrakShengdis = modelBrakShengdiMapper.selectList(wrapper);
-                    StringBuffer stringBuffer = new StringBuffer();
-                    modelBrakShengdis.forEach(modelBrakShengdi1 -> {
-                        stringBuffer.append(modelBrakShengdi1.getId());
-                        stringBuffer.append(",");
+                    s.forEach(sd -> {
+                        stringBuffer.append(sd.getId()).append(",");
                     });
                     productYisunBrak.setModel(stringBuffer.toString());
                 }
             }catch (Exception e){
                 log.info("处理车型出错："+j);
             }
+            productYisunBrak.setFactoryNum(ExcelUtil.getCellValue(sheet.getRow(j).getCell(1)));//工厂号
             Map ma = (Map) JSON.parse(ExcelUtil.getCellValue(sheet.getRow(j).getCell(6)));
-            pans.forEach(p-> {
+            for (Pan p : pans) {
                 //品牌
                 productYisunBrak.setSpecName(p.getName());
-                try{
-                    p.getFactory().forEach(f -> {
+                if(p.getFactory() == null || p.getFactory().size() == 0)
+                    continue;
+                    for (String f : p.getFactory()) {
                         //添加产品
                         productYisunBrak.setProductId(null);
-                        productYisunBrak.setFactoryNum(f);
-                        productYisunBrak.setHeight(ma.get("总高").toString());
-                        productYisunBrak.setDiameter(ma.get("直径").toString());
-                        productYisunBrak.setMinimumThickness(ma.get("最小厚度").toString());
-                        productYisunBrak.setPitchDiameter(ma.get("节圆直径").toString());
-                        productYisunBrak.setDiscThickness(ma.get("制动盘厚度").toString());
-                        productYisunBrak.setCenterHoleDiameter(ma.get("中心孔直径").toString());
-                        productYisunBrakMapper.insert(productYisunBrak);
-                    });
-                }catch (Exception e){
+                        EntityWrapper wrappers = new EntityWrapper();
+                        wrappers.eq("factory_num",f);
+                        List<ProductYisunBrak> isProductYisunBrak = productYisunBrakMapper.selectList(wrappers);
+                        if(isProductYisunBrak.size() != 0){
+                            productYisunBrak.setProductId(isProductYisunBrak.get(0).getProductId());
+                            productYisunBrakMapper.updateById(productYisunBrak);
+                        }else{
+                            if( ma==null || ma.size() == 0)
+                                continue;
+                            productYisunBrak.setFactoryNum(f);
+                            try {
+                                productYisunBrak.setHeight(ma.get("总高").toString());
+                                productYisunBrak.setDiameter(ma.get("直径").toString());
+                                productYisunBrak.setMinimumThickness(ma.get("最小厚度").toString());
+                                productYisunBrak.setPitchDiameter(ma.get("节圆直径").toString());
+                                productYisunBrak.setDiscThickness(ma.get("制动盘厚度").toString());
+                                productYisunBrak.setCenterHoleDiameter(ma.get("中心孔直径").toString());
+                                productYisunBrakMapper.insert(productYisunBrak);
+                            }catch (Exception e){
+                                continue;
+                            }
+                        }
+                    }
 
-                }
-            });
+            }
         }
     }
 
