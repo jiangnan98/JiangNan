@@ -16,6 +16,11 @@ HELP.md
 *.iws
 *.iml
 *.ipr
+*.log
+target/
+.externalToolBuilders
+log/
+*.jar
 
 ### NetBeans ###
 /nbproject/private/
