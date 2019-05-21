@@ -7,6 +7,8 @@ import com.bing.mapper.ProductYisunCellCopy1Mapper;
 import com.bing.middleware.AliOssUploadServer;
 import com.bing.model.ModelCellTuhu;
 import com.bing.model.ProductYisunCellCopy1;
+import com.bing.po.CellModel;
+import com.bing.util.ArrUtil;
 import com.bing.util.ExcelUtil;
 import com.bing.util.LogUtils;
 import org.apache.http.entity.ContentType;
@@ -114,6 +116,46 @@ public class CellController {
             productYisunCellCopy1.setSpecName(specNmae);
             productYisunCellCopy1Mapper.insert(productYisunCellCopy1);
 
+        }
+    }
+
+    @PostMapping("cellModel")
+    public void cellData() throws Exception{
+        List<String> strings = productYisunCellCopy1Mapper.findStr();
+        for (String s : strings) {
+            EntityWrapper wrapper = new EntityWrapper();
+            wrapper.eq("factory_num",s);
+            List<ProductYisunCellCopy1> list = productYisunCellCopy1Mapper.selectList(wrapper);
+            if(list == null || list.size()==0){
+                continue;
+            }
+            StringBuffer stringBuffer = new StringBuffer();
+            for (ProductYisunCellCopy1 c : list) {
+                stringBuffer.append(c.getModel()).append(",");
+            }
+            String[] str = stringBuffer.toString().split(",");
+            Object[] fac = ArrUtil.arrayTest1(str);
+            StringBuffer stra = new StringBuffer();
+            for (Object s1 : fac) {
+                stra.append(s1).append(",");
+            }
+            ProductYisunCellCopy1 productYisunCellCopy1 = new ProductYisunCellCopy1();
+            productYisunCellCopy1.setFactoryNum(s);
+            productYisunCellCopy1.setModel(stra.toString());
+            productYisunCellCopy1Mapper.editModel(productYisunCellCopy1);
+        }
+
+    }
+
+    @PostMapping("cellModelByTwo")
+    public void cellModelByTwo() throws Exception{
+        List<CellModel> cellModels = productYisunCellCopy1Mapper.findCellModel();
+        for (CellModel model : cellModels) {
+            ProductYisunCellCopy1 productYisunCellCopy1 = new ProductYisunCellCopy1();
+            productYisunCellCopy1.setModel(model.getModel());
+            productYisunCellCopy1.setFactoryNum(model.getFactory());
+            System.out.println("连接车型长度"+model.getModel().length());
+            productYisunCellCopy1Mapper.editModel(productYisunCellCopy1);
         }
     }
 

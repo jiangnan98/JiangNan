@@ -3,9 +3,18 @@
 <mapper namespace="com.bing.mapper.ProductYisunCellCopy1Mapper">
 
    <update id="editModel" parameterType="com.bing.model.ProductYisunCellCopy1">
-       update t_product_yisun_cell_copy1
+       update t_product_yisun_cell
        set model = #{model}
-       where product_id = #{productId}
+       where factory_num = #{factoryNum}
    </update>
-
+    <select id="findStr" resultType="java.lang.String">
+        select
+        DISTINCT factory_num
+        from t_product_yisun_cell
+    </select>
+    <select id="findCellModel" resultType="com.bing.po.CellModel">
+        select DISTINCT th.factory as 'factory',GROUP_CONCAT(tc.id) as 'model'
+        from  tuhu th left join t_model_cell_tuhu tc  on th.f = tc.f
+        GROUP BY factory
+    </select>
 </mapper>

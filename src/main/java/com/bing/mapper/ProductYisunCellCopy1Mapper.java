@@ -2,6 +2,9 @@ package com.bing.mapper;
 
 import com.baomidou.mybatisplus.mapper.BaseMapper;
 import com.bing.model.ProductYisunCellCopy1;
+import com.bing.po.CellModel;
+
+import java.util.List;
 
 /**
  * <p>
@@ -13,5 +16,7 @@ import com.bing.model.ProductYisunCellCopy1;
  */
 public interface ProductYisunCellCopy1Mapper extends BaseMapper<ProductYisunCellCopy1> {
     int editModel(ProductYisunCellCopy1 productYisunCellCopy1);
+    List<String> findStr();
 
+    List<CellModel> findCellModel();
 }

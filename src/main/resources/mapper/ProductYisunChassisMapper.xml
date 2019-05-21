@@ -9,10 +9,9 @@
         where factory_num = #{factoryNum}
     </update>
 
-    <update id="findChassisAll">
-       select
-       *
-       from
-       t_product_yisun_Chassis
+    <update id="editFactory" parameterType="com.bing.model.ProductYisunChassis">
+      update t_product_yisun_Chassis
+      set oem = #{oem}
+      where factory_num = #{factoryNum}
     </update>
 </mapper>

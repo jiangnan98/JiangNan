@@ -18,5 +18,5 @@ import java.util.List;
 public interface ProductYisunChassisMapper extends BaseMapper<ProductYisunChassis> {
     int editPrice(ProductYisunChassis productYisunChassis);
 
-    List<ProductYisunChassis> findChassisAll();
+    int editFactory(ProductYisunChassis productYisunChassis);
 }
