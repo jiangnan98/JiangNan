@@ -3,6 +3,8 @@ package com.bing.mapper;
 import com.baomidou.mybatisplus.mapper.BaseMapper;
 import com.bing.model.ProductYisunBrak;
 
+import java.util.List;
+
 /**
  * <p>
  *  Mapper 接口
@@ -21,4 +23,5 @@ public interface ProductYisunBrakMapper extends BaseMapper<ProductYisunBrak> {
 
     int editPanTrwPrice(ProductYisunBrak productYisunBrak);
 
+    List<ProductYisunBrak> findOnes(ProductYisunBrak productYisunBrak);
 }

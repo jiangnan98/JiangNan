@@ -59,6 +59,57 @@ public class BrakExcelController {
     @Autowired
     ShengdiModelMapper shengdiModelMapper;
 
+
+    @PostMapping("rbDta")
+    public void rbDta() throws Exception{
+        File file = new File("D:\\aaa\\data\\新索易市场价格11.10最终.xlsx");
+        InputStream is = new FileInputStream(file);
+        Workbook wb = new XSSFWorkbook(is);
+        Sheet sheet = wb.getSheetAt(0);
+        is.close();
+        //获取行数
+        int rowLens = sheet.getLastRowNum();
+        log.info("行数："+rowLens);
+        //获取车型数据
+        for(int i = 1;i<rowLens;i++){
+            String dNum = ExcelUtil.getCellValue(sheet.getRow(i).getCell(3));
+            ProductYisunBrak productYisunBrak = new ProductYisunBrak();
+            productYisunBrak.setSpecM(dNum);
+            productYisunBrak.setFactoryNum(dNum);
+            List<ProductYisunBrak> productYisunBraks = productYisunBrakMapper.findOnes(productYisunBrak);
+            if(productYisunBrak != null && productYisunBraks.size() != 0){
+                for (ProductYisunBrak brak : productYisunBraks) {
+                    if(StringUtils.isNotBlank(brak.getModel())){
+                        productYisunBrak = brak;
+                    }
+                }
+            }
+            productYisunBrak = productYisunBrak==null?new ProductYisunBrak():productYisunBrak;
+            if(StringUtils.isNotBlank(productYisunBrak.getFactoryNum())){
+                productYisunBrak.setSpecM(productYisunBrak.getFactoryNum());
+            }
+            productYisunBrak.setFactoryNum(ExcelUtil.getCellValue(sheet.getRow(i).getCell(2)));
+            productYisunBrak.setRemark(ExcelUtil.getCellValue(sheet.getRow(i).getCell(4)));
+            productYisunBrak.setApplyModel(ExcelUtil.getCellValue(sheet.getRow(i).getCell(5)));
+            productYisunBrak.setAnotherName(ExcelUtil.getCellValue(sheet.getRow(i).getCell(6)));
+            String ourcPrice = ExcelUtil.getCellValue(sheet.getRow(i).getCell(7));
+            if(StringUtils.isBlank(ourcPrice)){
+                ourcPrice = "0";
+            }
+            String price = ExcelUtil.getCellValue(sheet.getRow(i).getCell(9));
+            if(StringUtils.isBlank(price)){
+                price = "0";
+            }
+            productYisunBrak.setSpecName("索易");
+            productYisunBrak.setClassifyId("501");
+            productYisunBrak.setOurcPrice(MoneyUtils.moneyYuanToIntFen(ourcPrice));
+            productYisunBrak.setPrice(MoneyUtils.moneyYuanToIntFen(price));
+            productYisunBrak.setProductId(null);
+            productYisunBrakMapper.insert(productYisunBrak);
+            System.out.println(i);
+        }
+    }
+
     @PostMapping("moFineData")
     public void findList() throws Exception{
         File file = new File("D:\\aaa\\data\\美丰刹车片.xlsx");

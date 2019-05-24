@@ -71,6 +71,10 @@ public class ExcelController {
     ProductYisunChassisMapper productYisunChassisMapper;
     @Autowired
     ModelBrakMofineMapper modelBrakMofineMapper;
+    @Autowired
+    ModelFilterXyMapper modelFilterXyMapper;
+    @Autowired
+    TModelFilterXyMapper tModelFilterXyMapper;
 
     @Auth
     @PostMapping("testVerify")
@@ -82,6 +86,129 @@ public class ExcelController {
         TestResVo testResVo = new TestResVo();
         testResVo.setTestName(vo.getTestName());
         return ResponseResult.success(testResVo);
+    }
+
+
+    @PostMapping("xyFilter")
+    public void xyFilter() throws Exception {
+        File file = new File("D:\\aaa\\data\\信亿滤清器0523.xlsx");
+        InputStream is = new FileInputStream(file);
+        Workbook wb = new XSSFWorkbook(is);
+        Sheet sheet = wb.getSheetAt(1);
+        is.close();
+
+        //获取行数
+        int rowLens = sheet.getLastRowNum();
+        log.info("行数：" + rowLens);
+//        Row row = sheet.getRow(255);
+        //获取车型数据
+        for (int i = 1; i < rowLens; i++) {
+            EntityWrapper wrapper = new EntityWrapper();
+            wrapper.eq("cm_model_id",ExcelUtil.getCellValue(sheet.getRow(i).getCell(7)));
+            List<ModelFilterXy> modelFilterHIES = modelFilterXyMapper.selectList(wrapper);
+            StringBuffer stringBuffer = new StringBuffer();
+            for (ModelFilterXy hy : modelFilterHIES) {
+                stringBuffer.append(hy.getId()).append(",");
+            }
+            ProductYisunFilterHy productYisunFilterHy = new ProductYisunFilterHy();
+            String factory = ExcelUtil.getCellValue(sheet.getRow(i).getCell(10));
+            if(StringUtils.isBlank(factory)){
+                continue;
+            }
+            productYisunFilterHy.setFactoryNum(factory);
+            ProductYisunFilterHy hy = productYisunFilterHyMapper.selectOne(productYisunFilterHy);
+            if(hy==null){
+                productYisunFilterHy.setAnotherName(ExcelUtil.getCellValue(sheet.getRow(i).getCell(9)));
+                productYisunFilterHy.setModel(stringBuffer.toString());
+                productYisunFilterHy.setSpecName("信亿");
+                productYisunFilterHyMapper.insert(productYisunFilterHy);
+            }else{
+                stringBuffer.append(",").append(hy.getModel());
+                hy.setModel(stringBuffer.toString());
+                productYisunFilterHyMapper.updateById(hy);
+            }
+        }
+    }
+
+
+    @PostMapping("xyFilterModel")
+    public void xyFilterModel() throws Exception {
+        EntityWrapper wrapper = new EntityWrapper();
+        List<TModelFilterXy> tModelFilterXIES = tModelFilterXyMapper.selectList(wrapper);
+        for (TModelFilterXy t : tModelFilterXIES) {
+            t.setLetter(ChineseUtils.getPinYinHeadChar(t.getBrand()));
+            tModelFilterXyMapper.updateById(t);
+        }
+    }
+
+    @PostMapping("xyFilterPrice")
+    public void xyFilterPrice() throws Exception {
+        File file = new File("D:\\aaa\\data\\信义\\空调滤清器价格表（信亿）20190407.xlsx");
+        InputStream is = new FileInputStream(file);
+        Workbook wb = new XSSFWorkbook(is);
+        Sheet sheet = wb.getSheetAt(0);
+        is.close();
+        //获取行数
+        int rowLens = sheet.getLastRowNum();
+        log.info("行数：" + rowLens);
+        for (int i = 2; i < rowLens; i++) {
+            ProductYisunFilterHy productYisunFilterHy = new ProductYisunFilterHy();
+            String num = ExcelUtil.getCellValue(sheet.getRow(i).getCell(1));
+            String price = ExcelUtil.getCellValue(sheet.getRow(i).getCell(7));
+            String ourcPrice = ExcelUtil.getCellValue(sheet.getRow(i).getCell(8));
+            String apply = ExcelUtil.getCellValue(sheet.getRow(i).getCell(2));
+            productYisunFilterHy.setPrice(MoneyUtils.moneyYuanToIntFen(price));
+            productYisunFilterHy.setOurcPrice(MoneyUtils.moneyYuanToIntFen(ourcPrice));
+            productYisunFilterHy.setFactoryNum(num);
+            productYisunFilterHy.setApplyModel(apply);
+            productYisunFilterHyMapper.editPrice(productYisunFilterHy);
+        }
+    }
+
+
+    @PostMapping("xyFilterSpecM")
+    public void xyFilterSpecM() throws Exception {
+        File file = new File("D:\\aaa\\data\\信亿滤清器0523.xlsx");
+        InputStream is = new FileInputStream(file);
+        Workbook wb = new XSSFWorkbook(is);
+        Sheet sheet = wb.getSheetAt(2);
+        is.close();
+        //获取行数
+        int rowLens = sheet.getLastRowNum();
+        log.info("行数：" + rowLens);
+        for (int i = 0; i < rowLens; i++) {
+            ProductYisunFilterHy hy = new ProductYisunFilterHy();
+            String factoryNum = ExcelUtil.getCellValue(sheet.getRow(i).getCell(1));
+            if(StringUtils.isBlank(factoryNum)){
+                continue;
+            }
+            hy.setFactoryNum(factoryNum);
+            ProductYisunFilterHy hy1 = productYisunFilterHyMapper.selectOne(hy);
+            if(hy1 == null){
+                continue;
+            }
+            String type = ExcelUtil.getCellValue(sheet.getRow(i).getCell(4));
+            if(type.equals("pro_size")){
+                hy1.setSpecM(ExcelUtil.getCellValue(sheet.getRow(i).getCell(6)));
+            }
+            if(type.contains("code_oem")){
+                StringBuffer stringBuffer = new StringBuffer();
+                String oem = ExcelUtil.getCellValue(sheet.getRow(i).getCell(6));
+                stringBuffer.append(hy1.getOem()).append(",").append(oem);
+                hy1.setOem(stringBuffer.toString());
+            }
+            if(type.equals("image_picture")){
+                String pic = "https://sopei001-1251517753.cosgz.myqcloud.com/"+ExcelUtil.getCellValue(sheet.getRow(i).getCell(6));
+                String p = "";
+                try{
+                    p = fileUpload(pic);
+                }catch (Exception e){
+                    log.info("处理图片报错 行数："+i);
+                }
+                hy1.setCarousel(p);
+            }
+            productYisunFilterHyMapper.editSpecM(hy1);
+        }
     }
 
 

@@ -4,8 +4,8 @@
 
 <update id="editPrice" parameterType="com.bing.model.ProductYisunFilterHy">
         update
-        t_product_yisun_filter
-        set  apply_model = #{applyModel}
+        t_product_yisun_filter_xy
+        set  apply_model = #{applyModel},price = #{price},ourc_price = #{ourcPrice}
         where factory_num = #{factoryNum}
     </update>
 
@@ -50,5 +50,12 @@
         t_product_yisun_filter
         set  apply_model = #{applyModel}
         where factory_num = #{factoryNum} and spec_name = #{specName}
+    </update>
+
+    <update id="editSpecM" parameterType="com.bing.model.ProductYisunFilterHy">
+        update
+        t_product_yisun_filter_xy
+        set oem = #{oem},spec_m = #{specM}, carousel = #{carousel}
+        where factory_num = #{factoryNum}
     </update>
 </mapper>

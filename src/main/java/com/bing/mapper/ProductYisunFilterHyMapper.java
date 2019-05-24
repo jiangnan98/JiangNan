@@ -19,4 +19,5 @@ public interface ProductYisunFilterHyMapper extends BaseMapper<ProductYisunFilte
     int editOurcPriceMan(ProductYisunFilterHy productYisunFilterHy);
     int editHYPirce(ProductYisunFilterHy productYisunFilterHy);
     int editModel(ProductYisunFilterHy productYisunFilterHy);
+    int editSpecM(ProductYisunFilterHy productYisunFilterHy);
 }

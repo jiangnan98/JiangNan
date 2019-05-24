@@ -49,6 +49,13 @@
         from t_product_yisun_brak_copy1
         where factory_num = #{factoryNum} and  spec_m = #{specM}
     </select>
+
+    <select id="findOnes" parameterType="com.bing.model.ProductYisunBrak" resultMap="BaseResultMap">
+        select
+        *
+        from t_product_yisun_brak_fmsi
+        where factory_num = #{factoryNum} or  spec_m = #{specM}
+    </select>
     <update id="editModel" parameterType="com.bing.model.ProductYisunBrak">
         update t_product_yisun_brak_copy1 set  model = #{model} where product_id = #{productId}
     </update>
