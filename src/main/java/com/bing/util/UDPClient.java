@@ -34,7 +34,6 @@ public class UDPClient {
                     8001);
             //发送数据包
             ds.send(dp);
-
             //创建字节数组
             byte[] buf = new byte[100];
             //构建接收数据的数据包

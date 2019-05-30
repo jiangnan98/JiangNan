@@ -57,8 +57,29 @@ public class ChineseUtils {
      * @param str
      * @return
      */
-    public static String getPinYinHeadChar(String str) {
+    public static String getPinYinHeadChar(String str,int leng) {
+        str = str.replaceAll("\\(|\\)", "");
+        String convert = "";
+        for (int j = 0; j < str.length(); j++) {
+            char word = str.charAt(j);
+            String[] pinyinArray = PinyinHelper.toHanyuPinyinStringArray(word);
+            if (pinyinArray != null) {
+                convert += pinyinArray[0].charAt(0);
+            } else {
+                convert += word;
+            }
+        }
+        return convert.toUpperCase().substring(0,leng);
+    }
 
+    /**
+     * 得到中文首字母
+     *
+     * @param str
+     * @return
+     */
+    public static String getPinYinHeadChar(String str) {
+        str = str.replaceAll("\\(|\\)", "");
         String convert = "";
         for (int j = 0; j < str.length(); j++) {
             char word = str.charAt(j);
@@ -104,9 +125,11 @@ public class ChineseUtils {
     }
 
     public static void main(String[] args) {
-        String cnStr = "李流冰";
+        String cnStr = "孙雨蒙(金牌)";
+        cnStr = cnStr.replaceAll("\\(|\\)", "");
+        System.out.println(cnStr);
         System.out.println(getPingYin(cnStr));
-        System.out.println(getPinYinHeadChar(cnStr));
+        System.out.println(getPinYinHeadChar(cnStr,4));
         System.out.println(getPinYinHeadChar(cnStr.substring(0,1)));
     }
 }

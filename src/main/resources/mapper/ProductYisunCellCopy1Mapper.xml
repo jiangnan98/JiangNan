@@ -7,6 +7,19 @@
        set model = #{model}
        where factory_num = #{factoryNum}
    </update>
+
+    <update id="editFactory" parameterType="com.bing.res.vo.FactoryNum">
+       update t_product_yisun_${tab}
+       set factory_num = #{factoryNum}
+       where product_id = #{id}
+   </update>
+    <select id="findFactory" resultType="com.bing.res.vo.FactoryNum" parameterType="java.lang.String">
+        select
+        product_id as 'id', factory_num as 'factoryNum',shop_id as 'shopId'
+        from t_product_yisun_${tab}
+        where factory_num is null or factory_num = ''
+    </select>
+
     <select id="findStr" resultType="java.lang.String">
         select
         DISTINCT factory_num
