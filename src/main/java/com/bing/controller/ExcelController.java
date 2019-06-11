@@ -9,6 +9,7 @@ import com.bing.model.*;
 import com.bing.pack.LizardSystemCode;
 import com.bing.pack.RequestParam;
 import com.bing.pack.ResponseResult;
+import com.bing.req.vo.OemFilter;
 import com.bing.req.vo.TestReqVo;
 import com.bing.res.vo.TestResVo;
 import com.bing.service.ExcelService;
@@ -75,6 +76,8 @@ public class ExcelController {
     ModelFilterXyMapper modelFilterXyMapper;
     @Autowired
     TModelFilterXyMapper tModelFilterXyMapper;
+    @Autowired
+    TOemFilterMapper tOemFilterMapper;
 
     @Auth
     @PostMapping("testVerify")
@@ -88,6 +91,52 @@ public class ExcelController {
         return ResponseResult.success(testResVo);
     }
 
+    @PostMapping("hgstNew")
+    public void hgstNew() throws Exception {
+        File file = new File("D:\\aaa\\data\\hgst_oem_all.xlsx");
+        InputStream is = new FileInputStream(file);
+        Workbook wb = new XSSFWorkbook(is);
+        Sheet sheet = wb.getSheetAt(0);
+        is.close();
+        //获取行数
+        int rowLens = sheet.getLastRowNum();
+        log.info("行数：" + rowLens);
+//        Row row = sheet.getRow(255);
+        //获取车型数据
+        for (int i = 1; i < rowLens; i++) {
+            OemFilter oemFilter = new OemFilter();
+            oemFilter.setOem(ExcelUtil.getCellValue(sheet.getRow(i).getCell(0)));
+            oemFilter.setHgst(ExcelUtil.getCellValue(sheet.getRow(i).getCell(1)));
+            tOemFilterMapper.edit(oemFilter);
+        }
+    }
+
+
+    @PostMapping("mlOem")
+    public void mlOem() throws Exception {
+        File file = new File("D:\\aaa\\data\\0611\\manpai_oem.xlsx");
+        InputStream is = new FileInputStream(file);
+        Workbook wb = new XSSFWorkbook(is);
+        Sheet sheet = wb.getSheetAt(0);
+        is.close();
+        //获取行数
+        int rowLens = sheet.getLastRowNum();
+        log.info("行数：" + rowLens);
+//        Row row = sheet.getRow(255);
+        //获取车型数据
+        for (int i = 1; i < rowLens; i++) {
+            String[] oem = ExcelUtil.getCellValue(sheet.getRow(i).getCell(1)).split(";");
+            for (String s : oem) {
+                OemFilter oemFilter = new OemFilter();
+                oemFilter.setOem(s.replaceAll(" ",""));
+                oemFilter.setHgst(ExcelUtil.getCellValue(sheet.getRow(i).getCell(0)).replace(" ",""));
+                int j = tOemFilterMapper.edit(oemFilter);
+                if(j==0){
+                    tOemFilterMapper.insertOne(oemFilter);
+                }
+            }
+        }
+    }
 
     @PostMapping("xyFilter")
     public void xyFilter() throws Exception {

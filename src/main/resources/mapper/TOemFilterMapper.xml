@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bing.mapper.TOemFilterMapper">
+    <update id="edit" parameterType="com.bing.req.vo.OemFilter">
+        update
+        t_oem_filter
+        set  man_new = #{hgst}
+        where oem = #{oem}
+    </update>
+    <insert id="insertOne" parameterType="com.bing.req.vo.OemFilter">
+       insert into t_oem_filter(oem,man_new) values (#{oem},#{hgst})
+    </insert>
+</mapper>

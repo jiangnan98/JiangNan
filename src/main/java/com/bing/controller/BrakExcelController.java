@@ -516,6 +516,57 @@ public class BrakExcelController {
         }
     }
 
+    @PostMapping("SixData")
+    public void SixData() throws Exception {
+        File file = new File("D:\\aaa\\data\\product.xlsx");
+        InputStream is = new FileInputStream(file);
+        Workbook wb = new XSSFWorkbook(is);
+        Sheet sheet = wb.getSheetAt(0);
+        is.close();
+        //获取行数
+        int rowLens = sheet.getLastRowNum();
+        log.info("行数：" + rowLens);
+        //获取车型数据
+        for (int i = 1; i < rowLens; i++) {
+            String fac = ExcelUtil.getCellValue(sheet.getRow(i).getCell(1));
+            String[] facStr = fac.split("/");
+            for (String s : facStr) {
+                ProductYisunBrak productYisunBrak = new ProductYisunBrak();
+                productYisunBrak.setFactoryNum(s);
+                ProductYisunBrak pr = productYisunBrakMapper.selectOne(productYisunBrak);
+                if(pr != null){
+                    continue;
+                }
+                ProductType productType = new ProductType();
+                productType.setName(ExcelUtil.getCellValue(sheet.getRow(i).getCell(2)));
+                ProductType p = productTypeMapper.selectOne(productType);
+                if(p != null){
+                    productYisunBrak.setClassifyId(p.getSId().toString());
+                }
+                productYisunBrak.setAnotherName(ExcelUtil.getCellValue(sheet.getRow(i).getCell(2)));
+                String pic = ExcelUtil.getCellValue(sheet.getRow(i).getCell(4));
+                String pa = "";
+                try{
+                    pa = fileUpload(pic);
+                    productYisunBrak.setCarousel(pa);
+                }catch (Exception e){
+                    log.info("处理图片出错行数："+i+e);
+                    log.info(e.getMessage());
+                }
+                String mapStr = ExcelUtil.getCellValue(sheet.getRow(i).getCell(6));
+                Map ma = (Map) JSON.parse(mapStr);
+                if(ma != null){
+                    productYisunBrak.setDiameter(String.valueOf(ma.get("宽度")));
+                    productYisunBrak.setHeight(String.valueOf(ma.get("高度")));
+                    productYisunBrak.setDiscThickness(String.valueOf(ma.get("厚度")));
+                }
+                productYisunBrak.setSpecName("6X");
+                productYisunBrak.setBusinessType(1);
+                productYisunBrakMapper.insert(productYisunBrak);
+            }
+        }
+    }
+
     @PostMapping("TRWPanPrice")
     public void TRWPanPrice() throws Exception {
         File file = new File("D:\\aaa\\data\\TRW盘报价.xlsx");
